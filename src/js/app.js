@@ -1,15 +1,4 @@
 'use strict';
-
-/*
-TO DO
-- Eliminate ability to backspace when correct letters chosen 
-- Generate custom word list 
-- disable inupt **inputField.disabled = true;  // Disable the input
-- Change reset/restart text / fix trigger 
-*/
-
-
-
 /*-------------------------------------------------------------------------->
 		Word bank
 <--------------------------------------------------------------------------*/
@@ -128,7 +117,7 @@ const timerIcon = select('.fa-hourglass-half');
 		Variable Declarations
 <--------------------------------------------------------------------------*/
 
-let maxTime = 14;  
+let maxTime = 99;  
 let gameOver = false;
 let hits = 0;  
 let totalWords;  
@@ -205,16 +194,19 @@ function renderNextWord(arr) {
   const word = arr[0];  
   wordDisplay.innerHTML = ''; 
   
-  word.split('').forEach(character => {
+  const spansArray = word.split('').map(character => {
     const characterSpan = create('span');
     characterSpan.innerText = character;
-    wordDisplay.appendChild(characterSpan);
+    return characterSpan;  
   });
+
+  spansArray.forEach(span => wordDisplay.appendChild(span));
+
+  return spansArray;
 }
 
 /*-------------------------------------------------------------------------->
-		Start Game - Leave landing screen********** 
-		NOooooo this is just the restarting of the game 
+		Start Game - Landing Screen
 <--------------------------------------------------------------------------*/
 
 
@@ -238,39 +230,64 @@ function startGame() {
 listen('click', startButton, function () {
 	addClass(startScrn, 'hidden');  
 	addClass(gameArea, 'visible');  
+	addClass(beginGame, 'visible');  
 	startGame();  
 	userInput.focus();
 });
 
 listen('click', beginGame, function () {
-  startGame(); //** This is where the text changes and the input disables */
+  startGame(); 
 });
 
 function listenForTyping() {
   listen('input', userInput, function () {
-    if (gameOver) return;  
+    if (gameOver) return;
 
     const currentWord = wordDisplay.innerText;  
     const userTyped = userInput.value;  
 
-    if (userTyped === currentWord) { 
-      hits++; 
-			pointSoundEffect.play();
+    const wordSpans = wordDisplay.querySelectorAll('span');
+
+    wordSpans.forEach((span, index) => {
+      if (userTyped[index] === span.innerText) {
+        addClass(span, 'correct'); 
+      } else {
+        removeClass(span, 'correct'); 
+      }
+    });
+
+    if (userTyped === currentWord) {
+      hits++;
+      pointSoundEffect.play();
       shuffledWords.shift();  
       userInput.value = ''; 
 
       displayHits();
-			
-
+      
       if (shuffledWords.length === 0) { 
         gameOver = true;  
-				backgroundMusic.pause();
-				endgameSound.play();
-				userInput.disabled = true;
+        backgroundMusic.pause();
+        endgameSound.play();
+        userInput.disabled = true;
         calculateScore();  
         clearInterval(timerInterval); 
       } else {
         renderNextWord(shuffledWords); 
+      }
+    }
+  });
+
+  listen('keydown', userInput, function (e) {
+    if (gameOver) return;
+
+    const currentWord = wordDisplay.innerText;  
+    const userTyped = userInput.value;  
+
+    if (e.key === 'Backspace' && userTyped.length > 0) {
+      const lastTypedIndex = userTyped.length - 1;
+
+      if (userTyped[lastTypedIndex] === currentWord[lastTypedIndex]) {
+        e.preventDefault(); 
       }
     }
   });
@@ -290,7 +307,3 @@ function calculateScore() {
   const score = new Score(new Date(), hits, percentage);  
 	scoresStorage.push(score);
 }
-
-// backgroundMusic.pause();
-// backgroundMusic.play();
-

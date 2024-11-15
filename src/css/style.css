@@ -1,15 +1,4 @@
 @charset "utf-8";
-/*
-- Regulate all z-indexes
-- Add anothe mono font 
-- Hover effect for button 
-- Change input/reset colors
-- Add Game over? 
-- Recheck utils and roots
-- adjust tumbleweed/bug animations 
-- End sound not playing, background music not stopping 
-*/
-
 
 :root {
 	--app-bg-color: #001;
@@ -25,15 +14,19 @@
 	);
 }
 
-
-.wobble {
-	animation: wobble 0.5s infinite;
-}
 body {
 	font-family: "Noto Sans", "IMB Plex", monospace;
 	background-color: var(--app-bg-color);
 	color: var(--app-text-color);
 	overflow-x: hidden;
+}
+
+.wobble {
+	animation: wobble 0.5s infinite;
+}
+
+.correct {
+	color: #282;
 }
 
 .hidden {
@@ -53,6 +46,8 @@ body {
 .f-col {
 	flex-direction: column;
 }
+
+
 
 main {
 	height: 100svh;
@@ -76,7 +71,7 @@ h1 {
 	width: fit-content;
 	height: fit-content;
 	background: var(--app-gradient);
-	padding: 5px;
+	padding: 5px 25px;
 	border-radius: var(--app-border-rad);
 	font-size: 5rem;
 	color: var(--app-text-color);
@@ -102,12 +97,16 @@ h3 {
 }
 
 .scavenger-joe {
-	height: 550px;
-	width: auto;
+	width: 6svw;
+	height: auto;
 	position: fixed;
 	bottom: 25px;
 	left: 100px;
 	z-index: 1000;
+}
+
+.copyright {
+	font-size: 1rem;
 }
 
 .text-box {
@@ -153,6 +152,11 @@ h3 {
   filter: saturate(0); 
   border-radius: inherit; 
   z-index: -1; 
+	transition: all 0.3s ease;
+}
+
+.start-btn:hover::before {
+	filter: saturate(1);
 }
 
 .game-area {
@@ -210,6 +214,8 @@ h3 {
 	top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
+	display: hidden;
+	opacity: 0;
 }
 
 .bunker {
@@ -225,7 +231,16 @@ input[disabled] {
   pointer-events: none; 
   opacity: 0.5;       
 }
-
+ .tumbleweed {
+  width: 50px;
+  height: 50px;
+  background-image: url('../img/tumbleweed-drawing.svg'); 
+  background-size: cover;
+  position: absolute;
+	bottom: 70px;
+	z-index: 100;
+  animation: tumble 20s infinite linear;
+}
 @keyframes wobble {
   0% {
     transform: rotate(0deg);
@@ -263,16 +278,15 @@ input[disabled] {
 	flex-direction: column;
 }
 
- .tumbleweed {
-  width: 50px;
-  height: 50px;
-  background-image: url('../img/tumbleweed-drawing.svg'); 
-  background-size: cover;
-  position: absolute;
-	bottom: 70px;
-	z-index: 100;
-  animation: tumble 20s infinite linear;
+.wobble {
+	animation: wobble 0.5s infinite;
 }
+
+.correct {
+	color: #282;
+}
+
+
 
 @keyframes tumble {
   0% {
