@@ -1,0 +1,76 @@
+
+<html lang="en">
+    
+
+<head>
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Dave Sommerville">
+  <meta name="description" content="Explore Unreal City - a hub for web development and design tips. Learn HTML, CSS, JavaScript, and more.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Script Scavenger | Typing Game</title>
+  <link rel="icon" href="./src/img/favicon.png" type="image/x-icon">
+  <!--  External stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!--    Local Stylesheets -->
+  <link rel="stylesheet" href="./src/css/reset.css" media="all">
+  <link rel="stylesheet" href="./src/css/style.css" media="all">
+  <link rel="stylesheet" href="./src/css/utils.css" media="all">
+  <script src="./src/js/app.js" defer></script>  
+
+</head>
+
+<body>	
+  <main class="flex f-col">
+		<img src="./src/img/canyon-front.png" class="canyon-front">
+		<h1>SCRIPT SCAVENGER</h1>
+		<section class="start-scrn">
+			<img src="./src/img/scavenger-joe.png" class="scavenger-joe">
+			<div class="text-box flex f-col">
+				<p>
+					We've come across an exposed bunker, fellow scavenger! 
+				</p>
+				<p>
+					Collect what you can, there isn't much time!
+				</p>
+				<button type="button" class="start-btn">START</button>
+			</div>
+		</section>
+		<section class="game-area flex">
+			<h3>
+				<i class="fa-solid fa-hourglass-half "></i>
+				<span class="timer">---</span>
+				<i class="fa-solid fa-trophy"></i>
+				<span class="scoreboard">---</span>
+			</h3>
+			<h2>
+				Type the words correctly to grab as much junk as you can
+			</h2>
+			<div class="word-display"></div>
+			<input type="text" class="word-entry">
+		</section>
+		<section class="animations">
+			<div class="tumbleweed"></div>
+		</section>
+		<section class="">
+			<div class="restart-reset">RESET</div>
+			<audio class="background-music" loop>
+				<source src="./src/media/background.mp3" type="audio/mp3">
+				Your browser does not support the audio element.
+			</audio>
+			<audio class="sound-effect">
+				<source src="./src/media/score.mp3" type="audio/mp3">
+				Your browser does not support the audio element.
+			</audio>		
+			<audio class="endgame-sound">
+				<source src="./src/media/gameEnd.mp3" type="audio/mp3">
+				Your browser does not support the audio element.
+			</audio>		
+		</section>
+	</main>
+</body>
+</html>

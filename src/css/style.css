@@ -1,0 +1,291 @@
+@charset "utf-8";
+/*
+- Regulate all z-indexes
+- Add anothe mono font 
+- Hover effect for button 
+- Change input/reset colors
+- Add Game over? 
+- Recheck utils and roots
+- adjust tumbleweed/bug animations 
+- End sound not playing, background music not stopping 
+*/
+
+
+:root {
+	--app-bg-color: #001;
+	--app-text-color: #2b040b;
+	--app-btn-color: #fbcc8d;
+	--app-padding: 25px;
+	--app-border-rad: 8px;
+	--app-gradient: linear-gradient(
+		135deg, 
+		rgb(255 255 255 / 0.2) 0%,
+		rgb(255 255 255 / 0.6) 50%,
+		rgb(255 255 255 / 0.2) 100%
+	);
+}
+
+
+.wobble {
+	animation: wobble 0.5s infinite;
+}
+body {
+	font-family: "Noto Sans", "IMB Plex", monospace;
+	background-color: var(--app-bg-color);
+	color: var(--app-text-color);
+	overflow-x: hidden;
+}
+
+.hidden {
+	display: none;
+	opacity: 0;
+}
+
+.visible {
+	display: block;
+	opacity: 1;
+}
+
+.flex {
+	display: flex;
+}
+
+.f-col {
+	flex-direction: column;
+}
+
+main {
+	height: 100svh;
+	width: 100%;
+	background: #ddd url('../img/canyon.png') no-repeat center center;
+	background-size: cover;
+	justify-content: center;
+	align-items: center;
+}
+
+.canyon-front {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	bottom: 0;
+	z-index: 500;
+}
+
+h1 {
+	width: fit-content;
+	height: fit-content;
+	background: var(--app-gradient);
+	padding: 5px;
+	border-radius: var(--app-border-rad);
+	font-size: 5rem;
+	color: var(--app-text-color);
+	position: fixed;
+	top: 10px;
+}
+
+h2 {
+	font-size: 1.6rem;
+	color: var(--app-text-color);
+}
+
+h3 {
+	font-size: 2rem;
+	color: var(--app-text-color);
+	text-align: center;
+
+}
+
+.start-scrn {
+	opacity: 1; 
+	display: block; 
+}
+
+.scavenger-joe {
+	height: 550px;
+	width: auto;
+	position: fixed;
+	bottom: 25px;
+	left: 100px;
+	z-index: 1000;
+}
+
+.text-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+	font-size: 1.6rem;
+	font-weight: 600;
+  transform: translate(-50%, -50%);
+	background: var(--app-gradient);
+	border-radius: var(--app-border-rad);
+	padding: var(--app-padding);
+  width: 400px;
+  height: fit-content;
+	text-align: center;
+	align-items: center;
+	z-index:500;
+}
+
+.start-btn {
+  width: 300px;
+  height: 200px;
+  padding: var(--app-padding);
+  margin: var(--app-padding);
+  border-radius: var(--app-border-rad);
+  z-index: 1000;
+  background: #445 url(../img/bunker.png) no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  cursor: pointer;
+  position: relative; 
+}
+
+
+.start-btn::before {
+  content: ""; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; 
+  filter: saturate(0); 
+  border-radius: inherit; 
+  z-index: -1; 
+}
+
+.game-area {
+	width: 350px;
+	height: fit-content;
+	background: var(--app-gradient);
+	flex-direction: column;
+	padding: var(--app-padding);
+	border-radius: var(--app-border-rad);
+	opacity: 0;
+	display: hidden;
+	z-index: 1;
+}
+
+.word-display {
+	height:100px;
+	width: 100%;
+	padding: var(--app-padding);
+	border-radius: var(--app-border-rad);
+	color: #111;
+	font-size: 2rem;
+	z-index: 2000;
+	display: block;
+}
+
+.word-entry {
+	height: 60px;
+	width: 100%;
+	border: none;
+	padding-left: 10px;
+	font-size: 1.6rem;
+	font-weight: 500;
+	color: #fff;
+	border-radius: var(--app-border-rad);
+	background-color: var(--app-btn-color);
+}
+
+.word-entry:focus {
+	outline: none; 
+}
+
+.restart-reset {
+	width: fit-content;
+	padding: 5px;
+	margin: 5px 0;
+	background-color: var(--app-btn-color);
+	border-radius: var(--app-border-rad);
+	color: #fff;
+	font-size: 1.4rem;
+	font-weight: 500;
+	cursor: pointer;
+	z-index: 3000;
+	position: absolute;
+	top: 200px;
+	left: 200px;
+}
+
+.bunker {
+	height: 250px;
+	width: auto;
+	position: fixed;
+	bottom: 25px;
+	left: 50%;
+}
+
+
+input[disabled] {
+  pointer-events: none; 
+  opacity: 0.5;       
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+
+  }
+}
+
+.hidden {
+	display: none;
+	opacity: 0;
+}
+
+.visible {
+	display: block;
+	opacity: 1;
+}
+
+.flex {
+	display: flex;
+}
+
+.f-col {
+	flex-direction: column;
+}
+
+ .tumbleweed {
+  width: 50px;
+  height: 50px;
+  background-image: url('../img/tumbleweed-drawing.svg'); 
+  background-size: cover;
+  position: absolute;
+	bottom: 70px;
+	z-index: 100;
+  animation: tumble 20s infinite linear;
+}
+
+@keyframes tumble {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(800px) rotate(180deg);
+  }
+  50% {
+    transform: translateX(0) rotate(355deg);
+  }
+  75% {
+    transform: translateX(-800px) rotate(180deg);
+  }
+  100% {
+    transform: translateX(0) rotate(355deg);
+  }
+} 
