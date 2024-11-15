@@ -188,6 +188,7 @@ h3 {
 	color: #fff;
 	border-radius: var(--app-border-rad);
 	background-color: var(--app-btn-color);
+	z-index: 2000;
 }
 
 .word-entry:focus {
@@ -206,8 +207,9 @@ h3 {
 	cursor: pointer;
 	z-index: 3000;
 	position: absolute;
-	top: 200px;
-	left: 200px;
+	top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .bunker {

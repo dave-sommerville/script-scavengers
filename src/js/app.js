@@ -139,7 +139,11 @@ let timerInterval;  //** console log and set */
 const scoresStorage = [];
 
 /*-------------------------------------------------------------------------->
-		Shuffle Function ***** Fisher-Yates
+		Shuffle Function 
+		
+		I decided to use the Fisher-Yates shuffle method to . I learned about it
+		for my card game, and it has a more consistent randomness and a less
+		intensive time complexity
 <--------------------------------------------------------------------------*/
 
 function shuffleWords(arr) {
