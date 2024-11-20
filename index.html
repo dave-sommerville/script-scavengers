@@ -26,39 +26,51 @@
 <body>	
   <main class="flex f-col">
 		<img src="./src/img/canyon-front.png" class="canyon-front">
-		<h1>SCRIPT SCAVENGER</h1>
-		<section class="start-scrn">
-			<img src="./src/img/scavenger-joe.png" class="scavenger-joe">
+		<div class="animation wrapper">
+		<section class="start-scrn visible">
+			<!-- <img src="./src/img/scavenger-joe.png" class="scavenger-joe"> -->
 			<div class="text-box flex f-col">
+				<h1>SCRIPT SCAVENGER</h1>
 				<p>
 					We've come across an exposed bunker, fellow scavenger! 
 				</p>
 				<p>
-					Collect what you can, there isn't much time!
+					Type the words correctly to grab as much junk as you can.
+				</p>
+				<p>
+					Be quick! There isn't much time. 
 				</p>
 				<button type="button" class="start-btn">START</button>
-				<p class="copyright">Copyright Dave Sommerville</p>
+				<p class="copyright">
+					&copy; Dave Sommerville
+					<a href="https://github.com/dave-sommerville">
+						<i class="fa-brands fa-github"></i>
+					</a>
+				</p>
 			</div>
 		</section>
-		<section class="game-area flex">
+		</div>
+		<section class="game-area hidden flex">
+			<div class="info flex">
 			<h3>
 				<i class="fa-solid fa-hourglass-half "></i>
 				<span class="timer">---</span>
-				<span class="spanner"></span>
+			</h3>
+			<h3>
 				<i class="fa-solid fa-trophy"></i>
 				<span class="scoreboard">---</span>
 			</h3>
-			<h2>
-				Type the words correctly to grab as much junk as you can
-			</h2>
+			</div>
 			<div class="word-display"></div>
 			<input type="text" class="word-entry">
+			<div class="restart-reset">RESET</div>
+
 		</section>
 		<section class="animations">
 			<div class="tumbleweed"></div>
+			<div class="truck"></div>
 		</section>
 		<section>
-			<div class="restart-reset">RESET</div>
 			<audio class="background-music" loop>
 				<source src="./src/media/background.mp3" type="audio/mp3">
 				Your browser does not support the audio element.

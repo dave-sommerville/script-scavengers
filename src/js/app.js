@@ -228,9 +228,11 @@ function startGame() {
 <--------------------------------------------------------------------------*/
 
 listen('click', startButton, function () {
-	addClass(startScrn, 'hidden');  
-	addClass(gameArea, 'visible');  
-	addClass(beginGame, 'visible');  
+		startScrn.classList.toggle('hidden');
+		startScrn.classList.toggle('visible');
+		
+		gameArea.classList.toggle('hidden');
+		gameArea.classList.toggle('visible');
 	startGame();  
 	userInput.focus();
 });
@@ -277,20 +279,27 @@ function listenForTyping() {
     }
   });
 
-  listen('keydown', userInput, function (e) {
-    if (gameOver) return;
+listen('keydown', userInput, function (e) {
+  if (gameOver) return;
 
-    const currentWord = wordDisplay.innerText;  
-    const userTyped = userInput.value;  
+  const currentWord = wordDisplay.innerText;
+  const userTyped = userInput.value;
 
-    if (e.key === 'Backspace' && userTyped.length > 0) {
-      const lastTypedIndex = userTyped.length - 1;
+  if (e.key === 'Backspace' && userTyped.length > 0) {
+    const lastTypedIndex = userTyped.length - 1;
 
-      if (userTyped[lastTypedIndex] === currentWord[lastTypedIndex]) {
-        e.preventDefault(); 
-      }
+    // Allow backspacing into incorrect characters
+    const isCorrectSoFar = userTyped
+      .slice(0, lastTypedIndex + 1)
+      .split('')
+      .every((char, index) => char === currentWord[index]);
+
+    // Prevent backspace for correct characters at the end
+    if (isCorrectSoFar && userTyped[lastTypedIndex] === currentWord[lastTypedIndex]) {
+      e.preventDefault();
     }
-  });
+  }
+});
 }
 
 function displayHits() {
