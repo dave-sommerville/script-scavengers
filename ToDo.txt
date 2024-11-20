@@ -12,3 +12,5 @@
 - Always lowercase content 
 - Add changing text to the reset/restart button 
 - Clean and organize code 
+- Add items for scorekeeping? 
+- 
