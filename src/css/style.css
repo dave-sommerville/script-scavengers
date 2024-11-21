@@ -60,13 +60,31 @@ main {
 	position: relative;
 }
 
+.canyon-back {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	bottom: 0;
+	z-index: 0;
+}
+
+.canyon-mid {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	bottom: 0;
+	z-index:200;
+}
+
 .canyon-front {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	position: absolute;
 	bottom: 0;
-	z-index: 500;
+	z-index: 400;
 }
 
 .animation-wrapper {
@@ -106,20 +124,7 @@ h3 {
 
 .start-scrn {
 	position: relative;
-	/* z-index: 500;
-	opacity: 1; 
-	display: block;  */
 }
-
-/* .scavenger-joe {
-	width: 20svw;
-	height: auto;
-	position: fixed;
-	bottom: 25px;
-	left: 100px;
-	z-index: 500;
-} */
-
 
 .text-box {
   position: fixed;
@@ -177,9 +182,6 @@ h3 {
 	flex-direction: column;
 	padding: var(--app-padding);
 	border-radius: var(--app-border-rad);
-	/* opacity: 0;
-	display: none;
-	z-index: 0; */
 }
 
 .word-display {
@@ -190,8 +192,6 @@ h3 {
 	border-radius: var(--app-border-rad);
 	color: #111;
 	font-size: 3rem;
-	/* z-index: 2000; */
-	/* display: block; */
 }
 
 .word-entry {
@@ -204,7 +204,6 @@ h3 {
 	color: #fff;
 	border-radius: var(--app-border-rad);
 	background-color: var(--app-btn-color);
-	/* z-index: 5000; */
 }
 
 .word-entry:focus {
@@ -221,13 +220,6 @@ h3 {
 	font-size: 1.4rem;
 	font-weight: 500;
 	cursor: pointer;
-	/* z-index: 3000;
-	position: absolute;
-	top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-	display: hidden;
-	opacity: 0; */
 }
 
 .bunker {
@@ -251,7 +243,7 @@ input[disabled] {
   position: absolute;
 	left: -10px;
 	bottom: 70px;
-	z-index: 100;
+	z-index: 300;
   animation: tumbleRight 20s infinite linear 5s;
 }
 
@@ -263,7 +255,7 @@ input[disabled] {
   position: absolute;
 	right: -10px;
 	bottom: 120px;
-	z-index: 100;
+	z-index: 0;
   animation: truck 20s infinite linear 3s;
 }
 
