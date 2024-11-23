@@ -121,18 +121,14 @@ let maxTime = 99;
 let gameOver = false;
 let hits = 0;  
 let totalWords;  
-//	Um, for some reason I can't use const with this?? huh 
+//	Um, for some reason I can't use const with this?? 
 let shuffledWords = shuffleWords(wordBank);  
 let startTime = new Date();  
-let timerInterval;  //** console log and set */
+let timerInterval; 
 const scoresStorage = [];
 
 /*-------------------------------------------------------------------------->
 		Shuffle Function 
-		
-		I decided to use the Fisher-Yates shuffle method to . I learned about it
-		for my card game, and it has a more consistent randomness and a less
-		intensive time complexity
 <--------------------------------------------------------------------------*/
 
 function shuffleWords(arr) {
@@ -149,11 +145,17 @@ function shuffleWords(arr) {
 
 function updateTimer() {
   const remainingTime = maxTime - Math.floor((new Date() - startTime) / 1000);
-  const formattedTime = remainingTime < 10 ? `0${remainingTime}` : remainingTime; 
-  timer.innerText = formattedTime;  
+  const formattedTime = remainingTime < 10 ? `0${remainingTime}` : remainingTime;
 
-  if (remainingTime <= 10 && !timerIcon.classList.contains('wobble')) {
-    timerIcon.classList.add('wobble');
+  // Show "00" when time is up
+  if (remainingTime <= 0) {
+    timer.innerText = '00';
+    timerIcon.classList.remove('wobble');  
+  } else {
+    timer.innerText = formattedTime;
+    if (remainingTime <= 10 && !timerIcon.classList.contains('wobble')) {
+      timerIcon.classList.add('wobble'); 
+    }
   }
 }
 
@@ -161,7 +163,7 @@ function startTimer() {
   startTime = new Date();  
   timer.innerText = '99'; 
   gameOver = false; 
-  
+
   timerInterval = setInterval(() => {
     if (gameOver) {
       clearInterval(timerInterval); 
@@ -176,13 +178,17 @@ function startTimer() {
       endgameSound.play();  
       userInput.value = '';
       userInput.disabled = true;
-      timerIcon.classList.remove('wobble');
       clearInterval(timerInterval);  
       calculateScore();
+      updateTimer(); 
     } else {
-      updateTimer();
+      updateTimer();  
     }
   }, 1000);  
+}
+
+function getTimerTime() {
+  return maxTime - Math.floor((new Date() - startTime) / 1000);
 }
 
 /*-------------------------------------------------------------------------->
@@ -211,7 +217,7 @@ function renderNextWord(arr) {
 
 
 function startGame() {
-	userInput.disabled = false;
+  userInput.disabled = false;
   shuffledWords = shuffleWords(wordBank);  
   totalWords = shuffledWords.length; 
   hits = 0;  
@@ -219,9 +225,11 @@ function startGame() {
   startTimer();  
   renderNextWord(shuffledWords); 
   listenForTyping(); 
-	backgroundMusic.play();
-	userInput.focus();
+  backgroundMusic.currentTime = 0;  
+  backgroundMusic.play();          
+  userInput.focus();
 }
+
 
 /*-------------------------------------------------------------------------->
 		Event Observers 
@@ -245,13 +253,13 @@ function listenForTyping() {
   listen('input', userInput, function () {
     if (gameOver) return;
 
-    const currentWord = wordDisplay.innerText;  
-    const userTyped = userInput.value;  
+    const currentWord = wordDisplay.innerText.toLowerCase();  // Convert the displayed word to lowercase
+    const userTyped = userInput.value.trimStart().toLowerCase();  // Remove leading spaces and convert to lowercase
 
     const wordSpans = wordDisplay.querySelectorAll('span');
 
     wordSpans.forEach((span, index) => {
-      if (userTyped[index] === span.innerText) {
+      if (userTyped[index] === span.innerText.toLowerCase()) { // Compare each character in lowercase
         addClass(span, 'correct'); 
       } else {
         removeClass(span, 'correct'); 
@@ -279,27 +287,25 @@ function listenForTyping() {
     }
   });
 
-listen('keydown', userInput, function (e) {
-  if (gameOver) return;
+  listen('keydown', userInput, function (e) {
+    if (gameOver) return;
 
-  const currentWord = wordDisplay.innerText;
-  const userTyped = userInput.value;
+    const currentWord = wordDisplay.innerText.toLowerCase();  
+    const userTyped = userInput.value.trimStart().toLowerCase();  
 
-  if (e.key === 'Backspace' && userTyped.length > 0) {
-    const lastTypedIndex = userTyped.length - 1;
+    if (e.key === 'Backspace' && userTyped.length > 0) {
+      const lastTypedIndex = userTyped.length - 1;
 
-    // Allow backspacing into incorrect characters
-    const isCorrectSoFar = userTyped
-      .slice(0, lastTypedIndex + 1)
-      .split('')
-      .every((char, index) => char === currentWord[index]);
+      const isCorrectSoFar = userTyped
+        .slice(0, lastTypedIndex + 1)
+        .split('')
+        .every((char, index) => char === currentWord[index]);
 
-    // Prevent backspace for correct characters at the end
-    if (isCorrectSoFar && userTyped[lastTypedIndex] === currentWord[lastTypedIndex]) {
-      e.preventDefault();
+      if (isCorrectSoFar && userTyped[lastTypedIndex] === currentWord[lastTypedIndex]) {
+        e.preventDefault();
+      }
     }
-  }
-});
+  });
 }
 
 function displayHits() {
@@ -311,8 +317,10 @@ setInterval(function(){
 }, 1000);
 
 function calculateScore() {
-  const elapsedTime = getTimerTime();
+  const elapsedTime = getTimerTime();  
   const percentage = Math.floor((hits / totalWords) * 100);  
   const score = new Score(new Date(), hits, percentage);  
-	scoresStorage.push(score);
+  scoresStorage.push(score);  
+  console.log(score);  // Will Remove eventually 
 }
+

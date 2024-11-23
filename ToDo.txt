@@ -3,14 +3,7 @@
 	- Change font style
 	- Add more rustic additions like buttons, frames etc. 
 	- Fix contrast 
-- Add disappearing effect to text instead of green
-- Add further animations
-- Change music
-- Reset music at game end 
-- Should end at zero
-- Don't count space
-- Always lowercase content 
-- Add changing text to the reset/restart button 
-- Clean and organize code 
-- Add items for scorekeeping? 
-- 
+	- Adjust animations
+- Add changing text to the reset/restart button
+- Add scoreboard 
+	- Fix date style
