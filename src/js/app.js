@@ -2,7 +2,7 @@
 /*-------------------------------------------------------------------------->
 		Word bank
 <--------------------------------------------------------------------------*/
-const junkyardWordBank = [
+const wordBank = [
   'wrench', 'oil', 'brake', 'rust', 'tire', 'engine', 'gear', 'metal', 'scrap', 
   'bolt', 'muffler', 'wire', 'spanner', 'junk', 'clutch', 'fuel', 'gasket', 
   'radiator', 'plumber', 'hose', 'piston', 'axle', 'carburetor', 'panel', 
@@ -14,20 +14,20 @@ const junkyardWordBank = [
   'rivet', 'plunger', 'scraper', 'welding', 'chain', 'ratchet', 'compressor', 
 	'bucket', 'leak', 'forklift', 'patch', 'screws', 'wheel', 'spike', 'cylinder', 
 	'cable', 'pneumatic', 'bumper', 'shredder', 'frame', 'hydraulic', 'drain', 
-	'exhaust', 'dynamo', 'grinder', 'axle', 'hydraulic', 'propeller', 'workbench', 
+	'exhaust', 'dynamo', 'grinder', 'axle', 'hydraulic', 'propeller', 'bench', 
   'alternator', 'flywheel', 'carb', 'fuse', 'dismantle', 'magnet', 'torch', 
-	'sparkplug', 'oilfilter', 'dismantler', 'scrapper', 'leaks', 'fuelcell', 
+	'plug', 'filter', 'dismantler', 'scrapper', 'leaks', 'fuel', 'cell',
 	'transmission', 'coil', 'valve', 'hubcap', 'scrapheap', 'junkpile', 
 	'discarded', 'rusty', 'tools', 'gearbox', 'piston', 'detox', 'seatbelt', 
-	'jacket', 'brakefluid', 'filter', 'radiator', 'starter', 'tire', 'battery', 
-	'terminal', 'ratchetset', 'socket', 'pipe', 'harness', 'headlight', 'grinder', 
-	'clutchplate','scrap', 'bracket', 'spanner', 'paneling', 'compressor', 
+	'jacket', 'fluid', 'filter', 'radiator', 'starter', 'tire', 'battery', 
+	'terminal', 'ratchet', 'socket', 'pipe', 'harness', 'headlight', 'grinder', 
+	'clutch','scrap', 'bracket', 'spanner', 'paneling', 'compressor', 
 	'rebar','fender', 'panel', 'gasket', 'oilcan', 'fitting', 'toolbox', 'torch', 
-	'hopper', 'coil', 'cherry-picker', 'junk', 'debris', 'rebar', 'chain', 
-	'steel', 'bolt', 'cutters', 'wheel', 'ratchets', 'mask', 'scrapwire', 'hammer', 
-	'scrapscrew', 'doorhandle', 'lead', 'manifold', 'wrench', 'handtool', 'welder', 
-	'grindstone', 'shockabsorber', 'strut', 'hydraulic', 'flywheel', 'exhaust',
-  'cargo', 'coolant', 'brakes'
+	'hopper', 'coil', 'junk', 'debris', 'rebar', 'chain', 'steel', 'bolt', 
+	'cutters', 'wheel', 'ratchets', 'mask', 'scrapwire', 'hammer', 'handle', 
+	'lead', 'manifold', 'wrench', 'handtool', 'welder', 'door', 'grindstone', 
+	'shocks', 'absorber', 'strut', 'hydraulic', 'flywheel', 'exhaust', 'cargo', 
+	'coolant', 'brakes'
 ];
 
 /*-------------------------------------------------------------------------->
