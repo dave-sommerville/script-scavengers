@@ -1,9 +1,6 @@
 - Fix appearance
-	- Get rid of transparent effect 
-	- Change font style
-	- Add more rustic additions like buttons, frames etc. 
-	- Fix contrast 
-	- Adjust animations
+	- Fix icons
+	- Fix Scavenger Joe
 - Add changing text to the reset/restart button
 - Add scoreboard 
 	- Fix date style

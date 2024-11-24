@@ -6,25 +6,23 @@ Roots and Resets
 
 :root {
 	--app-bg-color: #001;
-	--app-text-color: #fefefe;
+	--app-text-color: ;
 	--app-btn-color: #fbcc8d;
+	--app-div-bg: #b97d44;
 	--app-padding: 25px;
 	--app-border-rad: 8px;
-	--app-gradient: linear-gradient(
-		135deg, 
-		rgb(255 255 255 / 0.2) 0%,
-		rgb(255 255 255 / 0.6) 50%,
-		rgb(255 255 255 / 0.2) 100%
-	);
 }
 
 body {
-	font-family: "Noto Sans", "IMB Plex", monospace;
+	font-family: "Press Start 2P", "IMB Plex Mono", monospace;
 	background-color: var(--app-bg-color);
 	color: var(--app-text-color);
 	overflow-x: hidden;
 }
 
+.fa-hourglass, .fa-trophy {
+	font-family: monospace;
+}
 
 /*---------------------------------------------->
 Local Utils 
@@ -112,21 +110,12 @@ Text and Elements
 
 
 h1 {
-	font-size: 5rem;
+	font-size: 3rem;
 	color: var(--app-text-color);
 	margin: 25px;
 }
 
 h2 {
-	font-size: 1.6rem;
-	color: var(--app-text-color);
-}
-
-.info {
-	justify-content: space-between;
-}
-
-h3 {
 	font-size: 2.5rem;
 	color: var(--app-text-color);
 	text-align: center;
@@ -136,33 +125,49 @@ h3 {
 	}
 }
 
+p {
+	font-size: 1.2rem;
+	line-height: 25px;
+}
+
 /*---------------------------------------------->
 START SCREEN
 <----------------------------------------------*/
+
+.info {
+	justify-content: space-between;
+}
 
 
 .copyright {
 	font-size: 1rem;
 }
 
-.start-scrn {
+.start-scrn-wrapper {
 	position: relative;
 }
 
-.text-box {
+.start-scrn {
   position: fixed;
   top: 50%;
   left: 50%;
 	font-size: 1.6rem;
 	font-weight: 600;
   transform: translate(-50%, -50%);
-	background: var(--app-gradient);
-	border-radius: var(--app-border-rad);
 	padding: var(--app-padding);
   width: fit-content;
   height: fit-content;
 	text-align: center;
 	align-items: center;
+}
+
+.text-box {
+	background-color: var(--app-div-bg);
+	border-radius: var(--app-border-rad);
+	padding: var(--app-padding);
+  width: 625px;
+  height: fit-content;
+	text-align: center;
 }
 
 .start-btn {
@@ -171,12 +176,17 @@ START SCREEN
   padding: var(--app-padding);
   margin: var(--app-padding);
   border-radius: var(--app-border-rad);
+	border: solid 2px var(--app-text-color);
   z-index: 500;
   background: #445 url(../img/bunker.png) no-repeat center center;
   background-size: cover;
   color: #fff;
   cursor: pointer;
   position: relative; 
+
+		span {
+			background-color: #001;
+		}
 }
 
 
@@ -278,18 +288,6 @@ ANIMATION ELEMENTS
 	bottom: 3svh;
 	z-index: 300;
   animation: tumbleRight 20s infinite linear 5s;
-}
-
-.truck {
-  width: 80px;
-  height: 50px;
-  background-image: url('../img/army-truck.png'); 
-  background-size: cover;
-  position: absolute;
-	right: -10px;
-	bottom: 13svh;
-	z-index: 0;
-  animation: truck 20s infinite linear 3s;
 }
 
 .bird {
@@ -442,15 +440,6 @@ Animation Paths
   }
 }
 
-
-@keyframes truck {
-  0% {
-    transform: translateX(0);
-	}
-  100% {
-    transform: translateX(-2000px);
-  }
-}
 
 
 @keyframes fly-cycle {

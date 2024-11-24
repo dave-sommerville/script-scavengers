@@ -95,7 +95,7 @@ function removeClass(element, customClass) {
 		Selectors
 <--------------------------------------------------------------------------*/
 const startButton = select('.start-btn');
-const startScrn = select('.start-scrn');
+const startScrn = select('.start-scrn-wrapper');
 const gameArea = select('.game-area');
 const beginGame = select('.restart-reset');
 const wordDisplay = select('.word-display');

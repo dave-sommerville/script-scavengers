@@ -14,8 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <!--    Local Stylesheets -->
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Press+Start+2P&display=swap" rel="stylesheet">  <!--    Local Stylesheets -->
   <link rel="stylesheet" href="./src/css/reset.css" media="all">
   <link rel="stylesheet" href="./src/css/style.css" media="all">
   <script src="./src/js/app.js" defer></script>  
@@ -28,20 +27,27 @@
 		<img src="./src/img/mid.png" class="canyon-mid">
 		<img src="./src/img/nearest.png" class="canyon-front">
 
-		<section class="start-scrn visible">
+		<section class="start-scrn-wrapper visible"> 
+			<!-- This wrapper is to free the screen from the animation layers-->
+			<div class="start-scrn">
 			<!-- <img src="./src/img/scavenger-joe.png" class="scavenger-joe"> -->
-			<div class="text-box flex f-col">
-				<h1>SCRIPT SCAVENGER</h1>
-				<p>
-					We've come across an exposed bunker, fellow scavenger! 
-				</p>
-				<p>
-					Type the words correctly to grab as much junk as you can.
-				</p>
-				<p>
-					Be quick! There isn't much time. 
-				</p>
-				<button type="button" class="start-btn">START</button>
+				<div class="text-box flex f-col">
+					<h1>SCRIPT SCAVENGER</h1>
+					<p>
+						We've come across an exposed bunker, fellow scavenger! 
+					</p>
+					<p>
+						Type the words correctly to grab as much junk as you can.
+					</p>
+					<p>
+						Be quick! There isn't much time. 
+					</p>
+				</div>
+				<button type="button" class="start-btn">
+					<span>
+						START
+					</span>
+				</button>
 				<p class="copyright">
 					&copy; Dave Sommerville
 					<a href="https://github.com/dave-sommerville">
@@ -52,14 +58,14 @@
 		</section>
 		<section class="game-area hidden flex">
 			<div class="info flex">
-			<h3>
+			<h2>
 				<i class="fa-solid fa-hourglass-half "></i>
 				<span class="timer">---</span>
-			</h3>
-			<h3>
+			</h2>
+			<h2>
 				<i class="fa-solid fa-trophy"></i>
 				<span class="scoreboard">---</span>
-			</h3>
+			</h2>
 			</div>
 			<div class="word-display"></div>
 			<input type="text" class="word-entry">
