@@ -1,16 +1,23 @@
 @charset "utf-8";
-
+/*
+- Decide on border, outline, shadow effects on box vs button
+- Tidy and organize css
+- Change display for time/hits
+- Add responsive design (background disappears) 
+- Figure out Scavenger Joe
+*/
 /*---------------------------------------------->
 Roots and Resets
 <----------------------------------------------*/
 
 :root {
 	--app-bg-color: #001;
-	--app-text-color: ;
+	--app-text-color: #722a0d;
 	--app-btn-color: #fbcc8d;
 	--app-div-bg: #b97d44;
 	--app-padding: 25px;
 	--app-border-rad: 8px;
+	--app-clr-dark: #2c050b;
 }
 
 body {
@@ -21,7 +28,8 @@ body {
 }
 
 .fa-hourglass, .fa-trophy {
-	font-family: monospace;
+	font-family: "Font Awesome 6 Free";
+	color: #122;
 }
 
 /*---------------------------------------------->
@@ -117,7 +125,7 @@ h1 {
 
 h2 {
 	font-size: 2.5rem;
-	color: var(--app-text-color);
+	color: var(--app-clr-dark);
 	text-align: center;
 
 	span {
@@ -164,6 +172,9 @@ START SCREEN
 .text-box {
 	background-color: var(--app-div-bg);
 	border-radius: var(--app-border-rad);
+	border: solid 3px var(--app-clr-dark);
+	box-shadow:  2px 1px 3px rgb(250 250 250 / 0.5), 
+		-2px -1px 3px rgb(0 0 0 / 0.5);
 	padding: var(--app-padding);
   width: 625px;
   height: fit-content;
@@ -176,7 +187,10 @@ START SCREEN
   padding: var(--app-padding);
   margin: var(--app-padding);
   border-radius: var(--app-border-rad);
-	border: solid 2px var(--app-text-color);
+	border: solid 3px var(--app-clr-dark);
+	outline: solid 0.5px #fff;
+	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
+		inset 2px 1px 3px rgb(0 0 0 / 0.5);
   z-index: 500;
   background: #445 url(../img/bunker.png) no-repeat center center;
   background-size: cover;
@@ -216,8 +230,12 @@ GAME PLAY
 .game-area {
 	width: 350px;
 	height: fit-content;
-	background: var(--app-gradient);
+	background-color: var(--app-div-bg);
 	flex-direction: column;
+	border: solid 3px var(--app-clr-dark);
+	outline: solid 0.5px #fff;
+	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
+		inset 2px 1px 3px rgb(0 0 0 / 0.5);
 	padding: var(--app-padding);
 	border-radius: var(--app-border-rad);
 }
@@ -228,7 +246,7 @@ GAME PLAY
 	line-height: 100px;
 	padding: var(--app-padding) 0;
 	border-radius: var(--app-border-rad);
-	color: #111;
+	color: var(--app-clr-dark);
 	font-size: 3rem;
 }
 
@@ -237,27 +255,40 @@ GAME PLAY
 	width: 100%;
 	border: none;
 	padding-left: 10px;
+	margin: 25px 0;
 	font-size: 1.6rem;
 	font-weight: 500;
-	color: #fff;
+	color: var(--app-clr-dark);
 	border-radius: var(--app-border-rad);
 	background-color: var(--app-btn-color);
 }
 
 .word-entry:focus {
+	height: 60px;
+	width: 100%;
 	outline: none; 
 }
 
 .restart-reset {
 	width: fit-content;
 	padding: 5px var(--app-padding);
-	margin: 5px 0;
-	background-color: var(--app-btn-color);
+	margin: 25px 0;
+	background-color: var(--app-text-color);
 	border-radius: var(--app-border-rad);
-	color: #fff;
+	border: solid 3px var(--app-clr-dark);
+	outline: solid 0.5px #fff;
+	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
+		inset 2px 1px 3px rgb(0 0 0 / 0.5);
+
+	color: var(--app-clr-dark);
 	font-size: 1.4rem;
 	font-weight: 500;
 	cursor: pointer;
+}
+
+.word-display {
+	font-size: 1.6rem;
+	color: var(--app-clr-dark);
 }
 
 .bunker {

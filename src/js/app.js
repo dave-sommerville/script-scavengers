@@ -1,4 +1,14 @@
 'use strict';
+/*
+- Tidy and organize code 
+- Changing Reset/restart text 
+- Apply score object to scorboard 
+	- Improve date display
+- Eventually:
+	- Export Word Bank to separate doc
+	- Add local storage for highscore 
+	
+*/
 /*-------------------------------------------------------------------------->
 		Word bank
 <--------------------------------------------------------------------------*/
