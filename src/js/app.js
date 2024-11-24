@@ -151,7 +151,6 @@ function updateTimer() {
   const remainingTime = maxTime - Math.floor((new Date() - startTime) / 1000);
   const formattedTime = remainingTime < 10 ? `0${remainingTime}` : remainingTime;
 
-  // Show "00" when time is up
   if (remainingTime <= 0) {
     timer.innerText = '00';
     timerIcon.classList.remove('wobble');  
@@ -199,7 +198,6 @@ function getTimerTime() {
 		Display Word
 <--------------------------------------------------------------------------*/
 
-
 function renderNextWord(arr) {
   const word = arr[0];  
   wordDisplay.innerHTML = ''; 
@@ -209,16 +207,13 @@ function renderNextWord(arr) {
     characterSpan.innerText = character;
     return characterSpan;  
   });
-
   spansArray.forEach(span => wordDisplay.appendChild(span));
-
   return spansArray;
 }
 
 /*-------------------------------------------------------------------------->
 		Start Game - Landing Screen
 <--------------------------------------------------------------------------*/
-
 
 function startGame() {
   userInput.disabled = false;

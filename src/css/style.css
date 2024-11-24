@@ -1,7 +1,6 @@
 @charset "utf-8";
 /*
 - Decide on border, outline, shadow effects on box vs button
-- Tidy and organize css
 - Change display for time/hits
 - Add responsive design (background disappears) 
 - Figure out Scavenger Joe
@@ -25,11 +24,6 @@ body {
 	background-color: var(--app-bg-color);
 	color: var(--app-text-color);
 	overflow-x: hidden;
-}
-
-.fa-hourglass, .fa-trophy {
-	font-family: "Font Awesome 6 Free";
-	color: #122;
 }
 
 /*---------------------------------------------->
@@ -146,7 +140,6 @@ START SCREEN
 	justify-content: space-between;
 }
 
-
 .copyright {
 	font-size: 1rem;
 }
@@ -203,7 +196,6 @@ START SCREEN
 		}
 }
 
-
 .start-btn::before {
   content: ""; 
   position: absolute;
@@ -221,7 +213,6 @@ START SCREEN
 .start-btn:hover::before {
 	filter: saturate(1);
 }
-
 
 /*---------------------------------------------->
 GAME PLAY
@@ -291,14 +282,6 @@ GAME PLAY
 	color: var(--app-clr-dark);
 }
 
-.bunker {
-	height: 250px;
-	width: auto;
-	position: fixed;
-	bottom: 25px;
-	left: 50%;
-}
-
 
 input[disabled] {
   pointer-events: none; 
@@ -309,15 +292,27 @@ input[disabled] {
 ANIMATION ELEMENTS
 <----------------------------------------------*/
 
- .tumbleweed {
-  width: 50px;
-  height: 50px;
+ .tumbleweed1 {
+  width: 55px;
+  height: 55px;
   background-image: url('../img/tumbleweed-drawing.svg'); 
   background-size: cover;
   position: absolute;
-	left: -10px;
-	bottom: 3svh;
+	right: -15px;
+	bottom: 20px;
 	z-index: 300;
+  animation: tumbleRight 20s infinite linear 5s;
+}
+
+.tumbleweed2 {
+	width: 40px;
+  height: 40px;
+  background-image: url('../img/tumbleweed-drawing.svg'); 
+  background-size: cover;
+  position: absolute;
+	right: -20px;
+	bottom: 80px;
+	z-index: 0;
   animation: tumbleRight 20s infinite linear 5s;
 }
 
@@ -458,16 +453,16 @@ Animation Paths
     transform: translateX(0) rotate(0deg);
   }
   25% {
-    transform: translateX(500px) rotate(360deg);
+    transform: translateX(-500px) rotate(-360deg);
   }
   50% {
-    transform: translateX(1000px) rotate(720deg);
+    transform: translateX(-1000px) rotate(-720deg);
   }
   75% {
-    transform: translateX(1500px) rotate(1080deg);
+    transform: translateX(-1500px) rotate(-1080deg);
   }
   100% {
-    transform: translateX(2000px) rotate(1440deg);
+    transform: translateX(-2000px) rotate(-1440deg);
   }
 }
 

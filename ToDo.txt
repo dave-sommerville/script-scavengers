@@ -1,6 +1,0 @@
-- Fix appearance
-	- Fix icons
-	- Fix Scavenger Joe
-- Add changing text to the reset/restart button
-- Add scoreboard 
-	- Fix date style
