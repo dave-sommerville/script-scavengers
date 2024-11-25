@@ -3,7 +3,6 @@
 - Decide on border, outline, shadow effects on box vs button
 - Change display for time/hits
 - Add responsive design (background disappears) 
-- Figure out Scavenger Joe
 */
 /*---------------------------------------------->
 Roots and Resets
@@ -142,10 +141,19 @@ START SCREEN
 
 .copyright {
 	font-size: 1rem;
+	color: #fff;
 }
 
 .start-scrn-wrapper {
 	position: relative;
+}
+
+.scavenger-joe {
+	width: 22svw;
+	height: auto;
+	bottom: 5svh;
+	left: 5svw;
+	position: fixed;
 }
 
 .start-scrn {
@@ -298,10 +306,10 @@ ANIMATION ELEMENTS
   background-image: url('../img/tumbleweed-drawing.svg'); 
   background-size: cover;
   position: absolute;
-	right: -15px;
+	right: -20px;
 	bottom: 20px;
 	z-index: 300;
-  animation: tumbleRight 20s infinite linear 5s;
+  animation: tumbleRight 18s infinite linear 2s;
 }
 
 .tumbleweed2 {
@@ -310,10 +318,10 @@ ANIMATION ELEMENTS
   background-image: url('../img/tumbleweed-drawing.svg'); 
   background-size: cover;
   position: absolute;
-	right: -20px;
+	right: -25px;
 	bottom: 80px;
 	z-index: 0;
-  animation: tumbleRight 20s infinite linear 5s;
+  animation: tumbleRight 23s infinite linear 6s;
 }
 
 .bird {
