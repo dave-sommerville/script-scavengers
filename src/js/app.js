@@ -294,3 +294,38 @@ function calculateScore() {
   console.log(score);  // Will Remove eventually 
 }
 
+/*------------------------------------------------------------------------->  
+	Profile Display
+<-------------------------------------------------------------------------*/
+
+function populateUserInfo(user) {
+  modalName.textContent = user.getFullName();
+  modalUserName.textContent = user.getUserName();
+  modalEmail.textContent = user.getEmail();
+
+  modalGroups.innerHTML = ''; 
+  const groupsList = document.createElement('ul');
+  user.getGroups().forEach((group) => {
+    const li = document.createElement('li');
+    li.textContent = group;
+    groupsList.appendChild(li);
+  });
+  modalGroups.appendChild(groupsList);
+
+  modalPages.innerHTML = ''; 
+  const pagesList = document.createElement('ul');
+  user.getPages().forEach((page) => {
+    const li = document.createElement('li');
+    li.textContent = page;
+    pagesList.appendChild(li);
+  });
+  modalPages.appendChild(pagesList);
+
+  avatarModal.src = user.getProfilePic();
+}
+
+function switchUser(user) {
+  currentUser = user;
+  populateUserInfo(currentUser);
+  renderPosts();
+}
