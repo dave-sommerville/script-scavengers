@@ -87,6 +87,8 @@ const backgroundMusic = select('.background-music');
 const pointSoundEffect = select('.sound-effect');
 const endgameSound = select('.endgame-sound');
 const timerIcon = select('.fa-hourglass-half');
+const viewScores = select('.view-scores');
+const scoresWrapper = select('.scores-wrapper');
 
 /*-------------------------------------------------------------------------->
 		Variable Declarations
@@ -219,6 +221,10 @@ listen('click', beginGame, function () {
   startGame(); 
 });
 
+listen('click', viewScores, function () {
+  scoresWrapper.classList.toggle('slide'); 
+});
+
 function listenForTyping() {
   listen('input', userInput, function () {
     if (gameOver) return;
@@ -292,40 +298,4 @@ function calculateScore() {
   const score = new Score(new Date(), hits, percentage);  
   scoresStorage.push(score);  
   console.log(score);  // Will Remove eventually 
-}
-
-/*------------------------------------------------------------------------->  
-	Profile Display
-<-------------------------------------------------------------------------*/
-
-function populateUserInfo(user) {
-  modalName.textContent = user.getFullName();
-  modalUserName.textContent = user.getUserName();
-  modalEmail.textContent = user.getEmail();
-
-  modalGroups.innerHTML = ''; 
-  const groupsList = document.createElement('ul');
-  user.getGroups().forEach((group) => {
-    const li = document.createElement('li');
-    li.textContent = group;
-    groupsList.appendChild(li);
-  });
-  modalGroups.appendChild(groupsList);
-
-  modalPages.innerHTML = ''; 
-  const pagesList = document.createElement('ul');
-  user.getPages().forEach((page) => {
-    const li = document.createElement('li');
-    li.textContent = page;
-    pagesList.appendChild(li);
-  });
-  modalPages.appendChild(pagesList);
-
-  avatarModal.src = user.getProfilePic();
-}
-
-function switchUser(user) {
-  currentUser = user;
-  populateUserInfo(currentUser);
-  renderPosts();
 }
