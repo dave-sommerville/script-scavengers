@@ -116,18 +116,14 @@ h1 {
 	margin: 25px;
 }
 
-h2 {
-	font-size: 2.5rem;
+h3 {
+	font-size: 2rem;
 	color: var(--app-clr-dark);
 	text-align: center;
-
-	span {
-		font-size: 3rem;
-	}
 }
 
-p {
-	font-size: 1.2rem;
+h2 {
+	font-size: 3rem;
 	line-height: 25px;
 }
 
@@ -180,57 +176,52 @@ START SCREEN
   width: 625px;
   height: fit-content;
 	text-align: center;
+
+	img {
+		width: 200px;
+		height: 200px;
+		margin: 15px auto;
+		border-radius: var(--app-border-rad);
+		border: solid 3px var(--app-clr-dark);
+	}
 }
 
-.start-btn {
-  width: 300px;
-  height: 200px;
-  padding: var(--app-padding);
-  margin: var(--app-padding);
-  border-radius: var(--app-border-rad);
+.button-wrapper {
+	justify-content: space-between;
+}
+
+.start-btn,
+.restart-reset, 
+.view-scores {
+	width: 200px;
+	height: 55px;
+	margin: 25px 0;
+	color: #fff;
+	padding: auto;
+	background-color: var(--app-clr-dark);
+	border-radius: var(--app-border-rad);
 	border: solid 3px var(--app-clr-dark);
 	outline: solid 0.5px #fff;
 	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
 		inset 2px 1px 3px rgb(0 0 0 / 0.5);
-  z-index: 500;
-  background: #445 url(../img/bunker.png) no-repeat center center;
-  background-size: cover;
-  color: #fff;
-  cursor: pointer;
-  position: relative; 
-
-		span {
-			background-color: #001;
-		}
+	line-height: 55px;
+	font-size: 1.4rem;
+	font-weight: 500;
+	cursor: pointer;
 }
 
-.start-btn::before {
-  content: ""; 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit; 
-  filter: saturate(0); 
-  border-radius: inherit; 
-  z-index: -1; 
-	transition: all 0.3s ease;
-}
-
-.start-btn:hover::before {
-	filter: saturate(1);
+.view-scores {
+	font-size: 1rem;
 }
 
 /*---------------------------------------------->
 GAME PLAY
 <----------------------------------------------*/
 
-.game-area {
-	width: 350px;
+.game-display {
+	width: 420px;
 	height: fit-content;
 	background-color: var(--app-div-bg);
-	flex-direction: column;
 	border: solid 3px var(--app-clr-dark);
 	outline: solid 0.5px #fff;
 	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
@@ -268,22 +259,6 @@ GAME PLAY
 	outline: none; 
 }
 
-.restart-reset {
-	width: fit-content;
-	padding: 5px var(--app-padding);
-	margin: 25px 0;
-	background-color: var(--app-text-color);
-	border-radius: var(--app-border-rad);
-	border: solid 3px var(--app-clr-dark);
-	outline: solid 0.5px #fff;
-	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
-		inset 2px 1px 3px rgb(0 0 0 / 0.5);
-
-	color: var(--app-clr-dark);
-	font-size: 1.4rem;
-	font-weight: 500;
-	cursor: pointer;
-}
 
 .word-display {
 	font-size: 1.6rem;

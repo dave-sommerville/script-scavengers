@@ -38,6 +38,7 @@
 					<p>
 						Be quick! There isn't much time. 
 					</p>
+					<img src="./src/img/bunker.png">
 				</div>
 				<button type="button" class="start-btn">
 					<span>
@@ -52,21 +53,23 @@
 				</p>
 			</div>
 		</section>
-		<section class="game-area hidden flex">
-			<div class="info flex">
-				<h2>
-					<i class="fa-solid fa-hourglass-half "></i>
-					<span class="timer">---</span>
-				</h2>
-				<h2>
-					<i class="fa-solid fa-trophy"></i>
-					<span class="scoreboard">---</span>
-				</h2>
+		<section class="game-area hidden f-col flex">
+			<div class="game-display flex f-col">
+				<div class="info flex">
+					<h3>
+						<span class="timer">---</span>
+					</h3>
+					<h3>
+						<span class="scoreboard">---</span>
+					</h3>
+				</div>
+				<div><h2 class="word-display"></h2></div>
+				<input type="text" class="word-entry">
 			</div>
-			<div><p class="word-display"></p></div>
-			<input type="text" class="word-entry">
-			<div class="restart-reset">RESET</div>
-			<div class="view-scores">VIEW</div>
+				<div class="button-wrapper flex">
+					<button class="restart-reset">RESET</button>
+					<button class="view-scores">HIGH SCORES</button>
+				</div>
 		</section>
 		
 <!----------------------------------------------------------/
