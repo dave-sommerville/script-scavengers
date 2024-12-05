@@ -1,8 +1,29 @@
 @charset "utf-8";
 /*
-- Decide on border, outline, shadow effects on box vs button
-- Change display for time/hits
-- Add responsive design (background disappears) 
+- Remove the high scores button if there are no scores 
+- Format scoreboard
+- Save indents jic
+- Switch to sort instead of shuffle 
+- Remove the possibility of duplicate words 
+- Maybe add some more words 
+- How to hide scoreboard 
+- Add decorations/effects to timer and hits 
+- Remove the one listener inside the function 
+- Add responsive 404 sign 
+- Tinker with animations 
+- Add Joe to the game play screen? 
+- Fix timer error in console 
+- Building the array of scores 
+  - Remember to take out class      //  Possible future use (templates)
+  - Consider the heirarchy 
+  - How many to show / comparisons of values 
+- Figure out how to stringify the array of scores objectgs (JSON.stringify?)
+- Then assign it to local storage 
+- Then retrieve it from local storage 
+- Parse()
+- Post the objects from the array 
+- Add animations to the intoduced li elements   // Will need for blackjack as well 
+- 
 */
 /*---------------------------------------------->
 Roots and Resets

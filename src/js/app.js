@@ -1,13 +1,4 @@
 'use strict';
-/*
-- Tidy and organize code 
-- Changing Reset/restart text 
-- Apply score object to scorboard 
-	- Improve date display
-- Eventually:
-	- Add local storage for highscore 
-	
-*/
 /*-------------------------------------------------------------------------->
 		Class Declartation
 <--------------------------------------------------------------------------*/
@@ -72,7 +63,7 @@ function removeClass(element, customClass) {
 }
 
 /*-------------------------------------------------------------------------->
-		Selectors
+	Element Selectors
 <--------------------------------------------------------------------------*/
 const startButton = select('.start-btn');
 const startScrn = select('.start-scrn-wrapper');
