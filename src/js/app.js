@@ -5,7 +5,6 @@
 - Apply score object to scorboard 
 	- Improve date display
 - Eventually:
-	- Export Word Bank to separate doc
 	- Add local storage for highscore 
 	
 */
@@ -115,6 +114,21 @@ function shuffleWords(arr) {
   }
   return arr;
 }
+
+/*-------------------------------------------------------------------------->
+		Date Display Function 
+<--------------------------------------------------------------------------*/
+
+function getDate() {
+  const options = {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit'
+  }
+
+  return new Date().toLocaleDateString('en-ca', options);
+}
+
 
 /*-------------------------------------------------------------------------->
 		Timer Functions 
@@ -295,7 +309,7 @@ setInterval(function(){
 function calculateScore() {
   const elapsedTime = getTimerTime();  
   const percentage = Math.floor((hits / totalWords) * 100);  
-  const score = new Score(new Date(), hits, percentage);  
+  const score = new Score(getDate(), hits, percentage);  
   scoresStorage.push(score);  
   console.log(score);  // Will Remove eventually 
 }
