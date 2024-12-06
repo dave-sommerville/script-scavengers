@@ -7,19 +7,18 @@
 - Switch to sort instead of shuffle 
 - Overhaul on word bank
 - How to hide scoreboard 
-- Add decorations/effects to timer and hits 
+- Add point animation to stash
+- Add scale animation to dynamite 
 - Add responsive 404 sign 
 - Tinker with animations 
 - Add Joe to the game play screen? 
-- Fix timer error in console 
-- Building the array of scores 
-  - Remember to take out class      //  Possible future use (templates)
-  - How many to show
+- Remember to take out class      //  Possible future use (templates)
+- Sex max number for scoreboard 
+- Fix scoreboard conflict with animations 
 - Figure out how to stringify the array of scores objects (JSON.stringify?)
 - Then assign it to local storage (Clear it first) 
 - Then retrieve it from local storage 
 - Parse()
-- Post the objects from the array 
 - Add animations to the intoduced li elements   // Will need for blackjack as well 
 */
 /*---------------------------------------------->

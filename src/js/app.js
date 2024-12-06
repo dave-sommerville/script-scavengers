@@ -1,43 +1,5 @@
 'use strict';
-/*-------------------------------------------------------------------------->
-		Class Declartation
-<--------------------------------------------------------------------------*/
 import { wordBank } from "./word-bank.js";
-
-
-//    EXTRACT
-class Score {
-	#date;
-	#hits;
-	#percentage;
-
-	constructor(date, hits, percentage){
-		this.date = date;
-		this.hits = hits;
-		this.percentage = percentage;
-	}
-
-	set date(date){
-		this.#date = date;
-	}
-	set hits(hits) {
-		this.#hits = hits;
-	}
-	set percentage(percentage) {
-		this.#percentage = percentage;
-	}
-
-	get date() {
-		return this.#date;
-	}
-	get hits() {
-		return this.#hits;
-	}
-	get percentage() {
-		return this.#percentage;
-	}
-}
-
 /*-------------------------------------------------------------------------->
 		Utility Functions
 <--------------------------------------------------------------------------*/
@@ -332,7 +294,12 @@ function createScoreListItem(score) {
 function calculateScore() {
   const elapsedTime = getTimerTime();
   const percentage = Math.floor((hits / totalWords) * 100);
-  const newScore = new Score(getDate(), hits, percentage);
+  const date = getDate();
+  const newScore = {
+    date: date, 
+    hits: hits, 
+    percentage: percentage
+  };
 
   let insertIndex = scoresStorage.length; 
 
