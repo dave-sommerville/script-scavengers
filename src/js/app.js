@@ -300,11 +300,6 @@ function createScoreListItem(score) {
   return li; 
 }
 
-
-//    WILD CLASS FOUND 
-
-
-
 function calculateScore() {
   const elapsedTime = getTimerTime();
   const percentage = Math.floor((hits / totalWords) * 100);
@@ -338,3 +333,22 @@ function populateScoreList(scores) {
       scoresList.appendChild(li);            
   });
 }
+
+
+function saveScoresToLocalStorage() {
+  const scoresJSON = JSON.stringify(scoresStorage);
+  localStorage.setItem('scores', scoresJSON);
+}
+
+//  saveScoresToLocalStorage();
+
+//  I Think this needs to be changed to increase validation (not in love with the if statement)
+function loadScoresFromLocalStorage() {
+  const scoresJSON = localStorage.getItem('scores');
+  if (scoresJSON) {
+      scoresStorage.length = 0; // Clear the current array
+      scoresStorage.push(...JSON.parse(scoresJSON)); // Repopulate with parsed data
+  }
+}
+
+//  loadScoresFromLocalStorage();
