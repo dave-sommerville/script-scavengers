@@ -142,10 +142,6 @@ h3 {
   text-align: center;
 }
 
-h2 {
-  font-size: 3rem;
-  line-height: 25px;
-}
 
 /*---------------------------------------------->
 START SCREEN
@@ -270,13 +266,11 @@ GAME PLAY
 }
 
 .word-display {
-  height:100px;
   width: 100%;
   line-height: 100px;
-  padding: var(--app-padding) 0;
   border-radius: var(--app-border-rad);
   color: var(--app-clr-dark);
-  font-size: 3rem;
+    font-size: 2.2rem;
 }
 
 .word-entry {
@@ -297,13 +291,6 @@ GAME PLAY
   width: 100%;
   outline: none; 
 }
-
-
-.word-display {
-  font-size: 1.6rem;
-  color: var(--app-clr-dark);
-}
-
 
 input[disabled] {
   pointer-events: none; 
