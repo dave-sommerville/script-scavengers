@@ -45,6 +45,7 @@ const timerIcon = select('.dynamite');
 const viewScores = select('.view-scores');
 const scoresWrapper = select('.scores-wrapper');
 const scoresList = select('.high-scores-list');
+const homeButton = select('.home');
 
 /*-------------------------------------------------------------------------->
 		Variable Declarations
@@ -158,8 +159,8 @@ function startGame() {
   userInput.disabled = false;
   shuffledWords = shuffleWords(wordBank);  
   totalWords = shuffledWords.length; 
-  hits = 0;  
-  gameOver = false; 
+  hits = 0;  // Reset hits to 0
+  gameOver = false;
 
   // Reset timer icon classes
   timerIcon.classList.remove('zoom', 'zoomier');
@@ -170,6 +171,18 @@ function startGame() {
   backgroundMusic.currentTime = 0;  
   backgroundMusic.play();          
   userInput.focus();
+
+  // Check for scores in local storage
+  const topScores = loadScoresFromLocalStorage();
+
+  // Toggle visibility of view-scores button based on high scores presence
+  if (topScores.length > 0) {
+    viewScores.classList.remove('hidden');
+    viewScores.classList.add('visible');
+  } else {
+    viewScores.classList.remove('visible');
+    viewScores.classList.add('hidden');
+  }
 }
 
 
@@ -300,6 +313,7 @@ function saveScoresToLocalStorage(scores) {
 }
 
 
+
 function calculateScore() {
   const elapsedTime = getTimerTime();
   const percentage = Math.floor((hits / totalWords) * 100);
@@ -369,4 +383,19 @@ scoresWrapper.addEventListener('click', function(ev) {
 listen('click', viewScores, () => {
 const topScores = loadScoresFromLocalStorage();
 populateScoreList(topScores);
+});
+
+function returnHome() {
+  // Toggle visibility of the start screen
+  startScrn.classList.toggle('hidden');
+  startScrn.classList.toggle('visible');
+
+  // Toggle visibility of the game area
+  gameArea.classList.toggle('hidden');
+  gameArea.classList.toggle('visible');
+}
+
+// Attach the returnHome function to a specific button or event
+listen('click', homeButton, () => {
+  returnHome();
 });

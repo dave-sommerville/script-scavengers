@@ -5,8 +5,7 @@
 - Remove all words more than 10 characters long
   - Check again for double words 
 
-- Remove the high scores button if there are no scores 
-
+=
 - Music mute button
 - Home button 
 
@@ -147,12 +146,7 @@ main {
   position: relative;
 }
 
-
-/* Get rid of ??  */
-
-
 /*---------------------------------------------->
-Text and Elements 
 <----------------------------------------------*/
 
 
@@ -392,7 +386,7 @@ HIGH SCORES
 
 .list-wrap {
   width: 100%;
-  height: 100%;
+  height: 250px;
   justify-content: center;
   align-items: center;
 
@@ -405,6 +399,11 @@ ul {
     text-decoration: none;
     line-height: 25px;
   }
+}
+
+.high-scores-list {
+  height: 100%;
+  align-items: flex-start;
 }
 
 /*---------------------------------------------->
