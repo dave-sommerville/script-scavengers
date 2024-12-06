@@ -14,7 +14,6 @@ lil Bits
 Scoreboard
 - Set max number 
 - Internal formatting
-- Decoration
 - Interference with animations 
 - How to hide it
 - Li animations in order 
@@ -41,6 +40,7 @@ Roots and Resets
   --clr-light: #b97d44;
   --clr-lightest: #fbcc8d;
   --clr-yellow: #ffcf35;
+  --clr-orange: #fb8443;
 
   --app-padding: 25px;
   --app-border-rad: 8px;
@@ -234,6 +234,13 @@ START SCREEN
   font-size: 1.4rem;
   font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.start-btn:hover,
+.restart-reset:hover, 
+.view-scores:hover {
+  color: var(--clr-light);
 }
 
 .view-scores {
@@ -269,7 +276,7 @@ GAME PLAY
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #282; /* ADD A different colour from palette */
+  background-color: var(--clr-orange); /* ADD A different colour from palette */
   justify-content: center;
   align-items: center;
   margin-left: 10px;
