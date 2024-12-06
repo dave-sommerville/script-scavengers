@@ -264,9 +264,11 @@ function listenForTyping() {
   listen('keydown', userInput, handleKeydown);
 }
 
+//    PAD START! So cool 
 function displayHits() {
-  scoreboard.innerText = hits;
+  scoreboard.innerText = hits.toString().padStart(2, '0');
 }
+
 
 setInterval(function(){
   displayHits;
