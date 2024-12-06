@@ -234,13 +234,13 @@ function listenForTyping() {
   listen('input', userInput, function () {
     if (gameOver) return;
 
-    const currentWord = wordDisplay.innerText.toLowerCase();  // Convert the displayed word to lowercase
-    const userTyped = userInput.value.trimStart().toLowerCase();  // Remove leading spaces and convert to lowercase
+    const currentWord = wordDisplay.innerText.toLowerCase();  
+    const userTyped = userInput.value.trimStart().toLowerCase();  
 
     const wordSpans = wordDisplay.querySelectorAll('span');
 
     wordSpans.forEach((span, index) => {
-      if (userTyped[index] === span.innerText.toLowerCase()) { // Compare each character in lowercase
+      if (userTyped[index] === span.innerText.toLowerCase()) { 
         addClass(span, 'correct'); 
       } else {
         removeClass(span, 'correct'); 
@@ -303,4 +303,5 @@ function calculateScore() {
   const score = new Score(getDate(), hits, percentage);  
   scoresStorage.push(score);  
   console.log(score);  // Will Remove eventually 
+  console.log(scoresStorage);
 }
