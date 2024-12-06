@@ -288,56 +288,55 @@ function createScoreListItem(score) {
   return li; 
 }
 
+function saveScoresToLocalStorage(scores) {
+  const scoresJSON = JSON.stringify(scores);
+  localStorage.setItem('scores', scoresJSON);
+}
+
 function calculateScore() {
   const elapsedTime = getTimerTime();
   const percentage = Math.floor((hits / totalWords) * 100);
   const date = getDate();
   const newScore = {
-    date: date, 
-    hits: hits, 
-    percentage: percentage
+    date: date,
+    hits: hits,
+    percentage: percentage,
   };
 
-  let insertIndex = scoresStorage.length; 
+  let existingScores = loadScoresFromLocalStorage();
 
-  for (let i = 0; i < scoresStorage.length; i++) {
-      if (hits > scoresStorage[i].hits) {
-          insertIndex = i;
-          break; 
-      }
+  let insertIndex = existingScores.length;
+  for (let i = 0; i < existingScores.length; i++) {
+    if (hits > existingScores[i].hits) {
+      insertIndex = i;
+      break;
+    }
   }
+  existingScores.splice(insertIndex, 0, newScore); 
 
-  scoresStorage.splice(insertIndex, 0, newScore); 
-  saveScoresToLocalStorage();
-  console.log(newScore);
-  console.log(scoresStorage); 
-  console.log(localStorage); 
+  saveScoresToLocalStorage(existingScores);
+
+  populateScoreList(existingScores);
 }
-
-function populateScoreList(scores) {
-  scoresList.innerHTML = '';
-
-  scores.forEach(score => {
-      const li = createScoreListItem(score); 
-      scoresList.appendChild(li);            
-  });
-}
-
-
-function saveScoresToLocalStorage() {
-  const scoresJSON = JSON.stringify(scoresStorage);
-  localStorage.setItem('scores', scoresJSON);
-}
-
-//  saveScoresToLocalStorage();
 
 //  I Think this needs to be changed to increase validation (not in love with the if statement)
 function loadScoresFromLocalStorage() {
   const scoresJSON = localStorage.getItem('scores');
-  if (scoresJSON) {
-      scoresStorage.length = 0; // Clear the current array
-      scoresStorage.push(...JSON.parse(scoresJSON)); // Repopulate with parsed data
-  }
+  return scoresJSON ? JSON.parse(scoresJSON) : [];
 }
 
-//  loadScoresFromLocalStorage();
+
+
+function populateScoreList(scores) {
+  scoresList.innerHTML = ''; 
+  scores.forEach(score => {
+      const li = createScoreListItem(score);
+      scoresList.appendChild(li); 
+  });
+}
+
+
+listen('click', viewScores, () => {
+const topScores = loadScoresFromLocalStorage();
+populateScoreList(topScores);
+});
