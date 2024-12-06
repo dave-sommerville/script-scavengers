@@ -199,9 +199,8 @@ listen('click', beginGame, function () {
   startGame(); 
 });
 
-listen('click', viewScores, function () {
-  scoresWrapper.classList.toggle('slide'); 
-  populateScoreList(scoresStorage);
+listen('click', viewScores, () => {
+  scoresWrapper.showModal();
 });
 
 function pointAnimation() {
@@ -320,9 +319,10 @@ function calculateScore() {
   }
 
   scoresStorage.splice(insertIndex, 0, newScore); 
-
+  saveScoresToLocalStorage();
   console.log(newScore);
   console.log(scoresStorage); 
+  console.log(localStorage); 
 }
 
 function populateScoreList(scores) {

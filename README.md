@@ -21,3 +21,4 @@ Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/
 <a href="https://www.freepik.com/icon/treasure_507754">Icon by Freepik</a>
 Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614">freesound_community</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614">Pixabay</a>
 <a href="https://www.freepik.com/icon/treasure_507754">Icon by Freepik</a>
+Icon by <a class="link_pro" href="https://freeicons.io/video-game-icon-set-3/trophy-winner-gaming-electronics-compettition-icon-159125">WANICON</a> on <a href="https://freeicons.io">freeicons.io</a>Icon by <a class="link_pro" href="https://freeicons.io/awards-2/trophy-awards-achievement.trophy-champions.cup-winner-icon-699049">Moudesain</a> on <a href="https://freeicons.io">freeicons.io</a>

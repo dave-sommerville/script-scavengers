@@ -1,7 +1,6 @@
 @charset "utf-8";
 /*
 lil Bits 
-- Color palette
 - Remove the high scores button if there are no scores 
 - Add year or whatever onto the bottom of game area
 - Even out space between bunker and text/bottom
@@ -28,10 +27,8 @@ Animations
 
 
 localStorage
-- Stringify the array of scores objects (JSON.stringify?)
-- Then assign it to local storage (Clear it first) 
 - Then retrieve it from local storage 
-- Parse()
+- JSON.parse() (with validation)
 */
 
 /*---------------------------------------------->
@@ -44,6 +41,7 @@ Roots and Resets
   --clr-medium: #722a0d;
   --clr-light: #b97d44;
   --clr-lightest: #fbcc8d;
+  --clr-yellow: #ffcf35;
 
   --app-padding: 25px;
   --app-border-rad: 8px;
