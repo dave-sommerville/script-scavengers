@@ -399,3 +399,46 @@ function returnHome() {
 listen('click', homeButton, () => {
   returnHome();
 });
+
+////   Need to work on 
+function muteMusic() {
+  if (backgroundMusic.muted) {
+    backgroundMusic.muted = false;
+    // Optionally, you can change the icon or update the UI here if needed
+  } else {
+    backgroundMusic.muted = true;
+    // Optionally, update the UI to reflect muted state
+  }
+}
+
+// Attach the muteMusic function to a specific button or event
+listen('click', document.querySelector('.mute-music-btn'), muteMusic);
+
+function randomAnimationInterval(minInterval, maxInterval, callback) {
+  // Generate a random interval duration in milliseconds
+  const randomInterval = Math.random() * (maxInterval - minInterval) + minInterval;
+
+  // Set an interval with the randomly generated duration
+  const intervalId = setInterval(() => {
+    callback();
+  }, randomInterval);
+
+  return intervalId;
+}
+
+// Usage example:
+const minInterval = 1000; // Minimum interval in milliseconds (1 second)
+const maxInterval = 5000; // Maximum interval in milliseconds (5 seconds)
+
+const animationTrigger = () => {
+  // Your animation logic here
+  console.log('Animation triggered!');
+};
+
+// Start the random interval for triggering animations
+const intervalId = randomAnimationInterval(minInterval, maxInterval, animationTrigger);
+
+// To clear the interval when needed (e.g., stop triggering animations):
+// clearInterval(intervalId);
+
+
