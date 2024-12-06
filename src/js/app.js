@@ -305,13 +305,10 @@ function calculateScore() {
     percentage: percentage,
   };
 
-  // Load existing scores from localStorage
   let existingScores = loadScoresFromLocalStorage();
 
-  // Filter out scores with zero hits
   existingScores = existingScores.filter(score => score.hits > 0);
 
-  // Insert the new score at the correct position
   let insertIndex = existingScores.length;
   for (let i = 0; i < existingScores.length; i++) {
     if (hits > existingScores[i].hits) {
@@ -319,17 +316,14 @@ function calculateScore() {
       break;
     }
   }
-  existingScores.splice(insertIndex, 0, newScore); // Add new score at the correct position
+  existingScores.splice(insertIndex, 0, newScore); 
 
-  // Keep only the top 10 scores
   if (existingScores.length > 10) {
     existingScores = existingScores.slice(0, 10);
   }
 
-  // Save the updated list back to localStorage
   saveScoresToLocalStorage(existingScores);
 
-  // Update the scores list on the page
   populateScoreList(existingScores);
 }
 
@@ -343,14 +337,20 @@ function loadScoresFromLocalStorage() {
   return [];
 }
 
+// Like Andre was talking about 
 
 function populateScoreList(scores) {
   scoresList.innerHTML = ''; 
-  scores.forEach(score => {
-      const li = createScoreListItem(score);
-      scoresList.appendChild(li); 
+  scores.forEach((score, index) => {
+    const li = createScoreListItem(score);
+    li.style.animationDelay = `${index * 0.2}s`; 
+    li.classList.add('li-animation'); 
+    scoresList.appendChild(li);
   });
 }
+
+
+
 //    GOTTA FIX THIS BOY UP
 
 scoresWrapper.addEventListener('click', function(ev) {

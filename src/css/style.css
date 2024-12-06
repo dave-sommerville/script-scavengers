@@ -11,12 +11,10 @@ Design
 
 - Add function to remove animation if present on reset 
 
-
-Both
 - Music mute button
 - Home button 
-- Li animations 
 
+- Organize code for god's sake man 
 
 
 Potential additions
@@ -60,7 +58,7 @@ Local Utils
 
 .correct {
   color: var(--clr-medium);
-  animation: dustEffect 0.5s ease-out forwards;
+  animation: dustEffect 0.5s ease-out forwards 0.1s;
 }
 
 .hidden {
@@ -86,6 +84,24 @@ Local Utils
 .r-margin {
   margin-right: 15px;
 }
+
+.li-animation {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: liFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes liFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /*---------------------------------------------->
 Background Display
@@ -281,7 +297,7 @@ GAME PLAY
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: var(--clr-orange); /* ADD A different colour from palette */
+  background-color: var(--clr-orange); 
   justify-content: center;
   align-items: center;
   margin-left: 10px;
@@ -408,7 +424,7 @@ ANIMATION ELEMENTS
   left: 5px;
   bottom: 4svh;
   z-index: 300;
-  animation: tumbleRight 18s infinite linear 2s; /* ADJUST TIMING */
+  animation: tumbleRight 18s infinite linear 2s; 
 }
 
 
