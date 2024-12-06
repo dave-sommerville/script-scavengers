@@ -4,6 +4,8 @@
 <--------------------------------------------------------------------------*/
 import { wordBank } from "./word-bank.js";
 
+
+//    EXTRACT
 class Score {
 	#date;
 	#hits;
@@ -76,9 +78,10 @@ const scoreboard = select('.scoreboard');
 const backgroundMusic = select('.background-music');
 const pointSoundEffect = select('.sound-effect');
 const endgameSound = select('.endgame-sound');
-const timerIcon = select('.fa-hourglass-half');
+const timerIcon = select('.dynamite');
 const viewScores = select('.view-scores');
 const scoresWrapper = select('.scores-wrapper');
+const scoresList = select('ul');
 
 /*-------------------------------------------------------------------------->
 		Variable Declarations
@@ -97,6 +100,8 @@ const scoresStorage = [];
 /*-------------------------------------------------------------------------->
 		Shuffle Function 
 <--------------------------------------------------------------------------*/
+
+// Switch back to the sort one liner
 
 function shuffleWords(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -228,10 +233,10 @@ listen('click', beginGame, function () {
 
 listen('click', viewScores, function () {
   scoresWrapper.classList.toggle('slide'); 
+  populateScoreList(scoresStorage);
 });
 
 
-// RE CHECK THIS TO SEE IF IT'S WORKING RIGHT
 function handleInput() {
   if (gameOver) return;
 
@@ -289,6 +294,7 @@ function handleKeydown(e) {
   }
 }
 
+// May need to change this a little still, but I kind of like it
 function listenForTyping() {
   listen('input', userInput, handleInput);
   listen('keydown', userInput, handleKeydown);
@@ -301,6 +307,27 @@ function displayHits() {
 setInterval(function(){
   displayHits;
 }, 1000);
+
+
+function createScoreListItem(score) {
+  const li = create('li');
+  addClass(li, 'score-item'); 
+
+  const details = `
+      <span class="score-date">${score.date}</span> | 
+      <span class="score-hits">Hits: ${score.hits}</span> | 
+      <span class="score-percentage">Accuracy: ${score.percentage}%</span>
+  `;
+
+  li.innerHTML = details;
+
+  return li; 
+}
+
+
+//    WILD CLASS FOUND 
+
+
 
 function calculateScore() {
   const elapsedTime = getTimerTime();
@@ -322,27 +349,11 @@ function calculateScore() {
   console.log(scoresStorage); 
 }
 
-function populateScoreList(scores, ulElement) {
-  ulElement.innerHTML = '';
+function populateScoreList(scores) {
+  scoresList.innerHTML = '';
 
   scores.forEach(score => {
       const li = createScoreListItem(score); 
-      ulElement.appendChild(li);            
+      scoresList.appendChild(li);            
   });
 }
-
-function createScoreListItem(score) {
-  const li = create('li');
-  addClass(li, 'score-item'); 
-
-  const details = `
-      <span class="score-date">📅 ${score.date}</span> | 
-      <span class="score-hits">🔥 Hits: ${score.hits}</span> | 
-      <span class="score-percentage">🎯 Accuracy: ${score.percentage}%</span>
-  `;
-
-  li.innerHTML = details;
-
-  return li; 
-}
-

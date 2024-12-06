@@ -3,11 +3,8 @@
 - Remove the high scores button if there are no scores 
 - Add year or whatever onto the bottom of game area
 - Even out space between bunker and text/bottom
--
 - Format scoreboard
-- Save indents jic
-- Switch to sort instead of shu3
-ffle 
+- Switch to sort instead of shuffle 
 - Overhaul on word bank
 - How to hide scoreboard 
 - Add decorations/effects to timer and hits 
@@ -17,14 +14,13 @@ ffle
 - Fix timer error in console 
 - Building the array of scores 
   - Remember to take out class      //  Possible future use (templates)
-  - How many to show / comparisons of values 
-- Figure out how to stringify the array of scores objectgs (JSON.stringify?)
-- Then assign it to local storage 
+  - How many to show
+- Figure out how to stringify the array of scores objects (JSON.stringify?)
+- Then assign it to local storage (Clear it first) 
 - Then retrieve it from local storage 
 - Parse()
 - Post the objects from the array 
 - Add animations to the intoduced li elements   // Will need for blackjack as well 
-- 
 */
 /*---------------------------------------------->
 Roots and Resets
@@ -140,6 +136,8 @@ h1 {
 
 h3 {
   font-size: 2rem;
+  display: block;
+  line-height: 60px;
   color: var(--app-clr-dark);
   text-align: center;
 }
@@ -252,6 +250,25 @@ GAME PLAY
   border-radius: var(--app-border-rad);
 }
 
+.dynamite {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.stall {
+  height: 40px;
+}
+
+.circle-bg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #282; /* ADD A different colour from palette */
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
 .word-display {
   height:100px;
   width: 100%;
@@ -330,7 +347,7 @@ ANIMATION ELEMENTS
   right: -20px;
   bottom: 20px;
   z-index: 300;
-  animation: tumbleRight 18s infinite linear 2s;
+  animation: tumbleRight 18s infinite linear 2s; /* ADJUST TIMING */
 }
 
 .tumbleweed2 {
@@ -415,7 +432,7 @@ animation-delay: 9.5s;
 
 <----------------------------------------------*/
 
-@keyframes wobble {
+@keyframes wobble { /* Adjust durations */
   0% {
     transform: rotate(0deg);
   }
@@ -434,7 +451,7 @@ animation-delay: 9.5s;
   }
 }
 
-@keyframes dustEffect {
+@keyframes dustEffect { /* Add small delay */
   0% {
     opacity: 1;
     filter: blur(0px);
@@ -469,7 +486,7 @@ animation-delay: 9.5s;
   animation: wobble 0.5s infinite;
 }
 
-.correct {
+.correct {  /* Change to a palette colour */
   color: #282;
 }
 
