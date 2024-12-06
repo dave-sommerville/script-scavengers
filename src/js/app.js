@@ -279,8 +279,8 @@ function createScoreListItem(score) {
 
   const details = `
       <span class="score-date">${score.date}</span> | 
-      <span class="score-hits">Hits: ${score.hits}</span> | 
-      <span class="score-percentage">Accuracy: ${score.percentage}%</span>
+      <span class="score-hits">${score.hits}</span> | 
+      <span class="score-percentage">${score.percentage}%</span>
   `;
 
   li.innerHTML = details;
@@ -289,9 +289,11 @@ function createScoreListItem(score) {
 }
 
 function saveScoresToLocalStorage(scores) {
-  const scoresJSON = JSON.stringify(scores);
+  const topScores = scores.slice(0, 10);
+  const scoresJSON = JSON.stringify(topScores);
   localStorage.setItem('scores', scoresJSON);
 }
+
 
 function calculateScore() {
   const elapsedTime = getTimerTime();
@@ -303,8 +305,13 @@ function calculateScore() {
     percentage: percentage,
   };
 
+  // Load existing scores from localStorage
   let existingScores = loadScoresFromLocalStorage();
 
+  // Filter out scores with zero hits
+  existingScores = existingScores.filter(score => score.hits > 0);
+
+  // Insert the new score at the correct position
   let insertIndex = existingScores.length;
   for (let i = 0; i < existingScores.length; i++) {
     if (hits > existingScores[i].hits) {
@@ -312,19 +319,29 @@ function calculateScore() {
       break;
     }
   }
-  existingScores.splice(insertIndex, 0, newScore); 
+  existingScores.splice(insertIndex, 0, newScore); // Add new score at the correct position
 
+  // Keep only the top 10 scores
+  if (existingScores.length > 10) {
+    existingScores = existingScores.slice(0, 10);
+  }
+
+  // Save the updated list back to localStorage
   saveScoresToLocalStorage(existingScores);
 
+  // Update the scores list on the page
   populateScoreList(existingScores);
 }
 
-//  I Think this needs to be changed to increase validation (not in love with the if statement)
 function loadScoresFromLocalStorage() {
   const scoresJSON = localStorage.getItem('scores');
-  return scoresJSON ? JSON.parse(scoresJSON) : [];
+  if (scoresJSON) {
+    let scores = JSON.parse(scoresJSON);
+    scores = scores.filter(score => score.hits > 0).slice(0, 10);
+    return scores;
+  }
+  return [];
 }
-
 
 
 function populateScoreList(scores) {
@@ -334,7 +351,15 @@ function populateScoreList(scores) {
       scoresList.appendChild(li); 
   });
 }
+//    GOTTA FIX THIS BOY UP
 
+scoresWrapper.addEventListener('click', function(ev) {
+  const rect = this.getBoundingClientRect();
+  if (ev.clientY < rect.top || ev.clientY > rect.bottom || 
+    ev.clientX < rect.left || ev.clientX > rect.right) {
+      scoresWrapper.close();
+  }
+});
 
 listen('click', viewScores, () => {
 const topScores = loadScoresFromLocalStorage();

@@ -1,20 +1,17 @@
 @charset "utf-8";
 /*
 Design
+
 - Add responsive 404 sign 
-- Add year or whatever onto the bottom of game area
-- Even out space between bunker and text/bottom
+
 - Scoreboard formatting
-- Game area vs. word length
 
+- Remove all words more than 10 characters long
+  - Check again for double words 
 
-Functions 
 - Remove the high scores button if there are no scores 
-- Fetch from local storage 
-- JSON.parse() (with validation)
 
 - Add function to remove animation if present on reset 
-- Set max number of top scores
 
 
 Both
@@ -101,6 +98,7 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .canyon-back {
@@ -334,23 +332,53 @@ HIGH SCORES
 <----------------------------------------------*/
 
 .scores-wrapper {
-  height: 90svh;
+  height: fit-content;
   width: 500px;
-  margin-top: 5svh;
-  padding: 20px;
+  margin: auto;
   position: fixed;
-  right: 0;
-  top: 0;
+  padding: var(--app-padding);
   z-index: 2000;
   background-color: var(--clr-light);
   border-radius: var(--app-border-rad);
   border: 2px dashed #012;
   outline: 3px solid #fff;
   transition: all 0.4s ease-in-out;
+
+  .title {
+    justify-content: space-between;
+    margin: var(--app-padding);
+  }
+
+  .trophy-wrap {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--clr-medium);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h4 {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 50px;
+    color: var(--clr-dark);
+  }
+
+  img {
+    height: 45px;
+    width: auto;
+  }
 }
 
-.scores-wrapper.slide {
-  transform: translateX(500px);
+ul {
+
+  li {
+    list-style: none;
+    text-decoration: none;
+    line-height: 25px;
+  }
 }
 
 /*---------------------------------------------->
