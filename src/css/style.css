@@ -4,24 +4,28 @@ lil Bits
 - Remove the high scores button if there are no scores 
 - Add year or whatever onto the bottom of game area
 - Even out space between bunker and text/bottom
-- Button hovers 
 - Add function to remove animation if present on reset 
 - Go over word bank for duplicates and dual words
 - Add more colourful words 
 - Add responsive 404 sign 
 - Music mute button
+- Home button 
+- Game area vs. word length
 
 Scoreboard
 - Set max number 
 - Internal formatting
-- Interference with animations 
-- How to hide it
+- Modal close 
 - Li animations in order 
 
-Animations 
-- Adjust timing 
+Design
+
+Functions 
+
+
+Potential additions
+- SetInterval on birds/ tumbleweed  animation  
 - Consider adding Joe into game area
-- Make sure animations do not mess with scroll, screen limits, or scoreboard
 
 
 localStorage
@@ -349,23 +353,12 @@ ANIMATION ELEMENTS
   background-image: url('../img/tumbleweed-drawing.svg'); 
   background-size: cover;
   position: absolute;
-  right: -20px;
-  bottom: 20px;
+  left: 5px;
+  bottom: 4svh;
   z-index: 300;
   animation: tumbleRight 18s infinite linear 2s; /* ADJUST TIMING */
 }
 
-.tumbleweed2 {
-  width: 40px;
-  height: 40px;
-  background-image: url('../img/tumbleweed-drawing.svg'); 
-  background-size: cover;
-  position: absolute;
-  right: -25px;
-  bottom: 80px;
-  z-index: 0;
-  animation: tumbleRight 23s infinite linear 6s;
-}
 
 .bird {
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg');
@@ -505,11 +498,11 @@ animation-delay: 9.5s;
 }
 
 .correct {  /* Change to a palette colour */
-  color: #282;
+  color: var(--clr-medium);
 }
 
 .bg-color {
-  background-color: #e2c;
+  background-color: var(--clr-yellow);
 }
 
 /*---------------------------------------------->
@@ -521,16 +514,16 @@ Animation Paths
     transform: translateX(0) rotate(0deg);
   }
   25% {
-    transform: translateX(-500px) rotate(-360deg);
+    transform: translateX(450px) rotate(360deg);
   }
   50% {
-    transform: translateX(-1000px) rotate(-720deg);
+    transform: translateX(900px) rotate(720deg);
   }
   75% {
-    transform: translateX(-1500px) rotate(-1080deg);
+    transform: translateX(1350px) rotate(1080deg);
   }
   100% {
-    transform: translateX(-2000px) rotate(-1440deg);
+    transform: translateX(1800px) rotate(1440deg);
   }
 }
 
