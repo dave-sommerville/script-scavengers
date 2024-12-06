@@ -2,22 +2,21 @@
 /*
 - Remove the high scores button if there are no scores 
 - Add year or whatever onto the bottom of game area
-
+- Even out space between bunker and text/bottom
+-
 - Format scoreboard
 - Save indents jic
-- Switch to sort instead of shuffle 
-- Remove the possibility of duplicate words 
-- Maybe add some more words 
+- Switch to sort instead of shu3
+ffle 
+- Overhaul on word bank
 - How to hide scoreboard 
 - Add decorations/effects to timer and hits 
-- Remove the one listener inside the function 
 - Add responsive 404 sign 
 - Tinker with animations 
 - Add Joe to the game play screen? 
 - Fix timer error in console 
 - Building the array of scores 
   - Remember to take out class      //  Possible future use (templates)
-  - Consider the heirarchy 
   - How many to show / comparisons of values 
 - Figure out how to stringify the array of scores objectgs (JSON.stringify?)
 - Then assign it to local storage 
@@ -32,20 +31,20 @@ Roots and Resets
 <----------------------------------------------*/
 
 :root {
-	--app-bg-color: #001;
-	--app-text-color: #722a0d;
-	--app-btn-color: #fbcc8d;
-	--app-div-bg: #b97d44;
-	--app-padding: 25px;
-	--app-border-rad: 8px;
-	--app-clr-dark: #2c050b;
+  --app-bg-color: #001;
+  --app-text-color: #722a0d;
+  --app-btn-color: #fbcc8d;
+  --app-div-bg: #b97d44;
+  --app-padding: 25px;
+  --app-border-rad: 8px;
+  --app-clr-dark: #2c050b;
 }
 
 body {
-	font-family: "Press Start 2P", "IMB Plex Mono", monospace;
-	background-color: var(--app-bg-color);
-	color: var(--app-text-color);
-	overflow-x: hidden;
+  font-family: "Press Start 2P", "IMB Plex Mono", monospace;
+  background-color: var(--app-bg-color);
+  color: var(--app-text-color);
+  overflow-x: hidden;
 }
 
 /*---------------------------------------------->
@@ -53,32 +52,32 @@ Local Utils
 <----------------------------------------------*/
 
 .wobble {
-	animation: wobble 0.5s infinite;
+  animation: wobble 0.5s infinite;
 }
 
 .correct {
-	color: #282;
-	animation: dustEffect 0.5s ease-out forwards;
+  color: #282;
+  animation: dustEffect 0.5s ease-out forwards;
 }
 
 .hidden {
-	display: none;
-	opacity: 0;
-	z-index: -100;
+  display: none;
+  opacity: 0;
+  z-index: -100;
 }
 
 .visible {
-	display: block;
-	opacity: 1;
-	z-index: 5000;
+  display: block;
+  opacity: 1;
+  z-index: 5000;
 }
 
 .flex {
-	display: flex;
+  display: flex;
 }
 
 .f-col {
-	flex-direction: column;
+  flex-direction: column;
 }
 
 /*---------------------------------------------->
@@ -86,46 +85,46 @@ Background Display
 <----------------------------------------------*/
 
 main {
-	height: 100svh;
-	width: 100%;
-	background: #ddd url('../img/canyon.png') no-repeat center center;
-	background-size: cover;
-	justify-content: center;
-	align-items: center;
-	position: relative;
+  height: 100svh;
+  width: 100%;
+  background: #ddd url('../img/canyon.png') no-repeat center center;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .canyon-back {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	position: absolute;
-	bottom: 0;
-	z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
 }
 
 .canyon-mid {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	position: absolute;
-	bottom: 0;
-	z-index:200;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  z-index:200;
 }
 
 .canyon-front {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	position: absolute;
-	bottom: 0;
-	z-index: 400;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  z-index: 400;
 }
 
 .animation-wrapper {
-	width: 100%;
-	height: 100%;
-	position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 /*---------------------------------------------->
@@ -134,20 +133,20 @@ Text and Elements
 
 
 h1 {
-	font-size: 3rem;
-	color: var(--app-text-color);
-	margin: 25px;
+  font-size: 3rem;
+  color: var(--app-text-color);
+  margin: 25px;
 }
 
 h3 {
-	font-size: 2rem;
-	color: var(--app-clr-dark);
-	text-align: center;
+  font-size: 2rem;
+  color: var(--app-clr-dark);
+  text-align: center;
 }
 
 h2 {
-	font-size: 3rem;
-	line-height: 25px;
+  font-size: 3rem;
+  line-height: 25px;
 }
 
 /*---------------------------------------------->
@@ -155,86 +154,86 @@ START SCREEN
 <----------------------------------------------*/
 
 .info {
-	justify-content: space-between;
+  justify-content: space-between;
 }
 
 .copyright {
-	font-size: 1rem;
-	color: #fff;
+  font-size: 1rem;
+  color: #fff;
 }
 
 .start-scrn-wrapper {
-	position: relative;
+  position: relative;
 }
 
 .scavenger-joe {
-	width: 22svw;
-	height: auto;
-	bottom: 5svh;
-	left: 5svw;
-	position: fixed;
+  width: 22svw;
+  height: auto;
+  bottom: 5svh;
+  left: 5svw;
+  position: fixed;
 }
 
 .start-scrn {
   position: fixed;
   top: 50%;
   left: 50%;
-	font-size: 1.6rem;
-	font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 600;
   transform: translate(-50%, -50%);
-	padding: var(--app-padding);
+  padding: var(--app-padding);
   width: fit-content;
   height: fit-content;
-	text-align: center;
-	align-items: center;
+  text-align: center;
+  align-items: center;
 }
 
 .text-box {
-	background-color: var(--app-div-bg);
-	border-radius: var(--app-border-rad);
-	border: solid 3px var(--app-clr-dark);
-	box-shadow:  2px 1px 3px rgb(250 250 250 / 0.5), 
-		-2px -1px 3px rgb(0 0 0 / 0.5);
-	padding: var(--app-padding);
+  background-color: var(--app-div-bg);
+  border-radius: var(--app-border-rad);
+  border: solid 3px var(--app-clr-dark);
+  box-shadow:  2px 1px 3px rgb(250 250 250 / 0.5), 
+    -2px -1px 3px rgb(0 0 0 / 0.5);
+  padding: var(--app-padding);
   width: 625px;
   height: fit-content;
-	text-align: center;
+  text-align: center;
 
-	img {
-		width: 200px;
-		height: 200px;
-		margin: 15px auto;
-		border-radius: var(--app-border-rad);
-		border: solid 3px var(--app-clr-dark);
-	}
+  img {
+    width: 200px;
+    height: 200px;
+    margin: 15px auto;
+    border-radius: var(--app-border-rad);
+    border: solid 3px var(--app-clr-dark);
+  }
 }
 
 .button-wrapper {
-	justify-content: space-between;
+  justify-content: space-between;
 }
 
 .start-btn,
 .restart-reset, 
 .view-scores {
-	width: 200px;
-	height: 55px;
-	margin: 25px 0;
-	color: #fff;
-	padding: auto;
-	background-color: var(--app-clr-dark);
-	border-radius: var(--app-border-rad);
-	border: solid 3px var(--app-clr-dark);
-	outline: solid 0.5px #fff;
-	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
-		inset 2px 1px 3px rgb(0 0 0 / 0.5);
-	line-height: 55px;
-	font-size: 1.4rem;
-	font-weight: 500;
-	cursor: pointer;
+  width: 200px;
+  height: 55px;
+  margin: 25px 0;
+  color: #fff;
+  padding: auto;
+  background-color: var(--app-clr-dark);
+  border-radius: var(--app-border-rad);
+  border: solid 3px var(--app-clr-dark);
+  outline: solid 0.5px #fff;
+  box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
+    inset 2px 1px 3px rgb(0 0 0 / 0.5);
+  line-height: 55px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .view-scores {
-	font-size: 1rem;
+  font-size: 1rem;
 }
 
 /*---------------------------------------------->
@@ -242,50 +241,50 @@ GAME PLAY
 <----------------------------------------------*/
 
 .game-display {
-	width: 420px;
-	height: fit-content;
-	background-color: var(--app-div-bg);
-	border: solid 3px var(--app-clr-dark);
-	outline: solid 0.5px #fff;
-	box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
-		inset 2px 1px 3px rgb(0 0 0 / 0.5);
-	padding: var(--app-padding);
-	border-radius: var(--app-border-rad);
+  width: 420px;
+  height: fit-content;
+  background-color: var(--app-div-bg);
+  border: solid 3px var(--app-clr-dark);
+  outline: solid 0.5px #fff;
+  box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
+    inset 2px 1px 3px rgb(0 0 0 / 0.5);
+  padding: var(--app-padding);
+  border-radius: var(--app-border-rad);
 }
 
 .word-display {
-	height:100px;
-	width: 100%;
-	line-height: 100px;
-	padding: var(--app-padding) 0;
-	border-radius: var(--app-border-rad);
-	color: var(--app-clr-dark);
-	font-size: 3rem;
+  height:100px;
+  width: 100%;
+  line-height: 100px;
+  padding: var(--app-padding) 0;
+  border-radius: var(--app-border-rad);
+  color: var(--app-clr-dark);
+  font-size: 3rem;
 }
 
 .word-entry {
-	height: 60px;
-	width: 100%;
-	border: none;
-	padding-left: 10px;
-	margin: 25px 0;
-	font-size: 1.6rem;
-	font-weight: 500;
-	color: var(--app-clr-dark);
-	border-radius: var(--app-border-rad);
-	background-color: var(--app-btn-color);
+  height: 60px;
+  width: 100%;
+  border: none;
+  padding-left: 10px;
+  margin: 25px 0;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--app-clr-dark);
+  border-radius: var(--app-border-rad);
+  background-color: var(--app-btn-color);
 }
 
 .word-entry:focus {
-	height: 60px;
-	width: 100%;
-	outline: none; 
+  height: 60px;
+  width: 100%;
+  outline: none; 
 }
 
 
 .word-display {
-	font-size: 1.6rem;
-	color: var(--app-clr-dark);
+  font-size: 1.6rem;
+  color: var(--app-clr-dark);
 }
 
 
@@ -299,23 +298,23 @@ HIGH SCORES
 <----------------------------------------------*/
 
 .scores-wrapper {
-	height: 90svh;
-	width: 500px;
-	margin-top: 5svh;
-	padding: 20px;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 2000;
-	background-color: var(--app-div-bg);
-	border-radius: var(--app-border-rad);
-	border: 2px dashed #012;
-	outline: 3px solid #fff;
-	transition: all 0.4s ease-in-out;
+  height: 90svh;
+  width: 500px;
+  margin-top: 5svh;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2000;
+  background-color: var(--app-div-bg);
+  border-radius: var(--app-border-rad);
+  border: 2px dashed #012;
+  outline: 3px solid #fff;
+  transition: all 0.4s ease-in-out;
 }
 
 .scores-wrapper.slide {
-	transform: translateX(500px);
+  transform: translateX(500px);
 }
 
 /*---------------------------------------------->
@@ -328,55 +327,55 @@ ANIMATION ELEMENTS
   background-image: url('../img/tumbleweed-drawing.svg'); 
   background-size: cover;
   position: absolute;
-	right: -20px;
-	bottom: 20px;
-	z-index: 300;
+  right: -20px;
+  bottom: 20px;
+  z-index: 300;
   animation: tumbleRight 18s infinite linear 2s;
 }
 
 .tumbleweed2 {
-	width: 40px;
+  width: 40px;
   height: 40px;
   background-image: url('../img/tumbleweed-drawing.svg'); 
   background-size: cover;
   position: absolute;
-	right: -25px;
-	bottom: 80px;
-	z-index: 0;
+  right: -25px;
+  bottom: 80px;
+  z-index: 0;
   animation: tumbleRight 23s infinite linear 6s;
 }
 
 .bird {
-	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg');
-	filter: invert(34%) sepia(55%) saturate(427%) hue-rotate(141deg) brightness(93%) contrast(91%);
-	background-size: auto 100%;
-	width: 88px;
-	height: 125px;
-	will-change: background-position;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg');
+  filter: invert(34%) sepia(55%) saturate(427%) hue-rotate(141deg) brightness(93%) contrast(91%);
+  background-size: auto 100%;
+  width: 88px;
+  height: 125px;
+  will-change: background-position;
 
-	animation-name: fly-cycle;
-	animation-timing-function: steps(10);
-	animation-iteration-count: infinite;
+  animation-name: fly-cycle;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
 }
 
 .bird-one {
-	animation-duration: 1s;
-	animation-delay: -0.5s;
+  animation-duration: 1s;
+  animation-delay: -0.5s;
 
 }
 .bird-two {
-	animation-duration: 0.9;
-	animation-delay: -0.75.s;
+  animation-duration: 0.9;
+  animation-delay: -0.75.s;
 
 }
 .bird-three {
-	animation-duration:1.25s;
-	animation-delay: -0.25s
+  animation-duration:1.25s;
+  animation-delay: -0.25s
 
 }
 .bird-four {
-	animation-duration: 1.1s;
-	animation-delay: -0.5s;
+  animation-duration: 1.1s;
+  animation-delay: -0.5s;
 }
 
 .bird-container {
@@ -407,8 +406,8 @@ animation-delay: 9.5s;
 }
 
 .bird-container-four {
-	animation-duration: 16s;
-	animation-delay: 10.25s;
+  animation-duration: 16s;
+  animation-delay: 10.25s;
 }
 
 
@@ -459,19 +458,19 @@ animation-delay: 9.5s;
 <----------------------------------------------*/
 
 .flex {
-	display: flex;
+  display: flex;
 }
 
 .f-col {
-	flex-direction: column;
+  flex-direction: column;
 }
 
 .wobble {
-	animation: wobble 0.5s infinite;
+  animation: wobble 0.5s infinite;
 }
 
 .correct {
-	color: #282;
+  color: #282;
 }
 
 /*---------------------------------------------->
@@ -501,7 +500,7 @@ Animation Paths
 @keyframes fly-cycle {
 
 100% {
-	background-position: -900px 0;
+  background-position: -900px 0;
 }
 
 }
@@ -509,35 +508,35 @@ Animation Paths
 @keyframes fly-right-one {
 
 0% {
-	transform: scale(0.3) translateX(-10vw);
+  transform: scale(0.3) translateX(-10vw);
 }
 
 10% {
-	transform: translateY(2vh) translateX(10vw) scale(0.4);
+  transform: translateY(2vh) translateX(10vw) scale(0.4);
 }
 
 20% {
-	transform: translateY(0vh) translateX(30vw) scale(0.5);
+  transform: translateY(0vh) translateX(30vw) scale(0.5);
 }
 
 30% {
-	transform: translateY(4vh) translateX(50vw) scale(0.6);
+  transform: translateY(4vh) translateX(50vw) scale(0.6);
 }
 
 40% {
-	transform: translateY(2vh) translateX(70vw) scale(0.6);
+  transform: translateY(2vh) translateX(70vw) scale(0.6);
 }
 
 50% {
-	transform: translateY(0vh) translateX(90vw) scale(0.6);
+  transform: translateY(0vh) translateX(90vw) scale(0.6);
 }
 
 60% {
-	transform: translateY(0vh) translateX(110vw) scale(0.6);
+  transform: translateY(0vh) translateX(110vw) scale(0.6);
 }
 
 100% {
-	transform: translateY(0vh) translateX(110vw) scale(0.6);
+  transform: translateY(0vh) translateX(110vw) scale(0.6);
 }
 
 }
@@ -545,35 +544,35 @@ Animation Paths
 @keyframes fly-right-two {
 
 0% {
-	transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+  transform: translateY(-2vh) translateX(-10vw) scale(0.5);
 }
 
 10% {
-	transform: translateY(0vh) translateX(10vw) scale(0.4);
+  transform: translateY(0vh) translateX(10vw) scale(0.4);
 }
 
 20% {
-	transform: translateY(-4vh) translateX(30vw) scale(0.6);
+  transform: translateY(-4vh) translateX(30vw) scale(0.6);
 }
 
 30% {
-	transform: translateY(1vh) translateX(50vw) scale(0.45);
+  transform: translateY(1vh) translateX(50vw) scale(0.45);
 }
 
 40% {
-	transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+  transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
 }
 
 50% {
-	transform: translateY(0vh) translateX(90vw) scale(0.45);
+  transform: translateY(0vh) translateX(90vw) scale(0.45);
 }
 
 51% {
-	transform: translateY(0vh) translateX(110vw) scale(0.45);
+  transform: translateY(0vh) translateX(110vw) scale(0.45);
 }
 
 100% {
-	transform: translateY(0vh) translateX(110vw) scale(0.45);
+  transform: translateY(0vh) translateX(110vw) scale(0.45);
 }
 
 }

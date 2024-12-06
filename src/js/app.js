@@ -303,10 +303,22 @@ setInterval(function(){
 }, 1000);
 
 function calculateScore() {
-  const elapsedTime = getTimerTime();  
-  const percentage = Math.floor((hits / totalWords) * 100);  
-  const score = new Score(getDate(), hits, percentage);  
-  scoresStorage.push(score);  
-  console.log(score);  // Will Remove eventually 
-  console.log(scoresStorage);
+  const elapsedTime = getTimerTime();
+  const percentage = Math.floor((hits / totalWords) * 100);
+  const newScore = new Score(getDate(), hits, percentage);
+
+  let insertIndex = scoresStorage.length; 
+
+  for (let i = 0; i < scoresStorage.length; i++) {
+      if (hits > scoresStorage[i].hits) {
+          insertIndex = i;
+          break; 
+      }
+  }
+
+  scoresStorage.splice(insertIndex, 0, newScore); 
+
+  console.log(newScore);
+  console.log(scoresStorage); 
 }
+
