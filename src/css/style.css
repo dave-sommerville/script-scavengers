@@ -11,7 +11,7 @@ lil Bits
 - Go over word bank for duplicates and dual words
 - Add more colourful words 
 - Add responsive 404 sign 
-
+- Music pause button
 
 Scoreboard
 - Set max number 
@@ -39,19 +39,20 @@ Roots and Resets
 <----------------------------------------------*/
 
 :root {
-  --app-bg-color: #001;
-  --app-text-color: #722a0d;
-  --app-btn-color: #fbcc8d;
-  --app-div-bg: #b97d44;
+  --clr-darkest: #001;
+  --clr-dark: #2c050b;
+  --clr-medium: #722a0d;
+  --clr-light: #b97d44;
+  --clr-lightest: #fbcc8d;
+
   --app-padding: 25px;
   --app-border-rad: 8px;
-  --app-clr-dark: #2c050b;
 }
 
 body {
   font-family: "Press Start 2P", "IMB Plex Mono", monospace;
-  background-color: var(--app-bg-color);
-  color: var(--app-text-color);
+  background-color: var(  --clr-darkest);
+  color: var(--clr-medium);
   overflow-x: hidden;
 }
 
@@ -142,7 +143,7 @@ Text and Elements
 
 h1 {
   font-size: 3rem;
-  color: var(--app-text-color);
+  color: var(--clr-medium);
   margin: 25px;
 }
 
@@ -150,7 +151,7 @@ h3 {
   font-size: 2rem;
   display: block;
   line-height: 60px;
-  color: var(--app-clr-dark);
+  color: var(--clr-dark);
   text-align: center;
 }
 
@@ -195,9 +196,9 @@ START SCREEN
 }
 
 .text-box {
-  background-color: var(--app-div-bg);
+  background-color: var(--clr-light);
   border-radius: var(--app-border-rad);
-  border: solid 3px var(--app-clr-dark);
+  border: solid 3px var(--clr-dark);
   box-shadow:  2px 1px 3px rgb(250 250 250 / 0.5), 
     -2px -1px 3px rgb(0 0 0 / 0.5);
   padding: var(--app-padding);
@@ -210,7 +211,7 @@ START SCREEN
     height: 200px;
     margin: 15px auto;
     border-radius: var(--app-border-rad);
-    border: solid 3px var(--app-clr-dark);
+    border: solid 3px var(--clr-dark);
   }
 }
 
@@ -226,9 +227,9 @@ START SCREEN
   margin: 25px 0;
   color: #fff;
   padding: auto;
-  background-color: var(--app-clr-dark);
+  background-color: var(--clr-dark);
   border-radius: var(--app-border-rad);
-  border: solid 3px var(--app-clr-dark);
+  border: solid 3px var(--clr-dark);
   outline: solid 0.5px #fff;
   box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
     inset 2px 1px 3px rgb(0 0 0 / 0.5);
@@ -249,8 +250,8 @@ GAME PLAY
 .game-display {
   width: 420px;
   height: fit-content;
-  background-color: var(--app-div-bg);
-  border: solid 3px var(--app-clr-dark);
+  background-color: var(--clr-light);
+  border: solid 3px var(--clr-dark);
   outline: solid 0.5px #fff;
   box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
     inset 2px 1px 3px rgb(0 0 0 / 0.5);
@@ -282,7 +283,7 @@ GAME PLAY
   width: 100%;
   line-height: 100px;
   border-radius: var(--app-border-rad);
-  color: var(--app-clr-dark);
+  color: var(--clr-dark);
     font-size: 2.2rem;
 }
 
@@ -294,9 +295,9 @@ GAME PLAY
   margin: 25px 0;
   font-size: 1.6rem;
   font-weight: 500;
-  color: var(--app-clr-dark);
+  color: var(--clr-dark);
   border-radius: var(--app-border-rad);
-  background-color: var(--app-btn-color);
+  background-color: var(--clr-lightest);
 }
 
 .word-entry:focus {
@@ -323,7 +324,7 @@ HIGH SCORES
   right: 0;
   top: 0;
   z-index: 2000;
-  background-color: var(--app-div-bg);
+  background-color: var(--clr-light);
   border-radius: var(--app-border-rad);
   border: 2px dashed #012;
   outline: 3px solid #fff;
