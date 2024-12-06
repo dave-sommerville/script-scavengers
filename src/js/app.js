@@ -37,6 +37,7 @@ const wordDisplay = select('.word-display');
 const userInput = select('.word-entry');
 const timer = select('.timer');
 const scoreboard = select('.scoreboard');
+const stashBackground = select('.circle-bg');
 const backgroundMusic = select('.background-music');
 const pointSoundEffect = select('.sound-effect');
 const endgameSound = select('.endgame-sound');
@@ -49,7 +50,7 @@ const scoresList = select('ul');
 		Variable Declarations
 <--------------------------------------------------------------------------*/
 
-let maxTime = 99;  
+let maxTime = 25;  
 let gameOver = false;
 let hits = 0;  
 let totalWords;  
@@ -98,11 +99,16 @@ function updateTimer() {
 
   if (remainingTime <= 0) {
     timer.innerText = '00';
-    timerIcon.classList.remove('wobble');  
+    timerIcon.classList.remove('zoomier');  
+    timerIcon.classList.remove('zoom');  
   } else {
     timer.innerText = formattedTime;
-    if (remainingTime <= 10 && !timerIcon.classList.contains('wobble')) {
-      timerIcon.classList.add('wobble'); 
+    if (remainingTime <= 15 && !timerIcon.classList.contains('zoom')) {
+      timerIcon.classList.add('zoom'); 
+    }
+    if (remainingTime <= 5 && !timerIcon.classList.contains('zoomier')) {
+      timerIcon.classList.remove('zoom');  
+      timerIcon.classList.add('zoomier'); 
     }
   }
 }
@@ -198,6 +204,13 @@ listen('click', viewScores, function () {
   populateScoreList(scoresStorage);
 });
 
+function pointAnimation() {
+    stashBackground.classList.add('bg-color');
+
+    setTimeout(() => {
+        stashBackground.classList.remove('bg-color');
+    }, 200); 
+  }
 
 function handleInput() {
   if (gameOver) return;
@@ -218,6 +231,7 @@ function handleInput() {
   if (userTyped === currentWord) {
       hits++;
       pointSoundEffect.play();
+      pointAnimation();
       shuffledWords.shift();  
       userInput.value = ''; 
 

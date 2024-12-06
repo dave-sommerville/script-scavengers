@@ -1,26 +1,39 @@
 @charset "utf-8";
 /*
+lil Bits 
+- Color palette
 - Remove the high scores button if there are no scores 
 - Add year or whatever onto the bottom of game area
 - Even out space between bunker and text/bottom
-- Format scoreboard
+- Button hovers 
+- Add function to remove animation if present on reset 
 - Switch to sort instead of shuffle 
-- Overhaul on word bank
-- How to hide scoreboard 
-- Add point animation to stash
-- Add scale animation to dynamite 
+- Go over word bank for duplicates and dual words
+- Add more colourful words 
 - Add responsive 404 sign 
-- Tinker with animations 
-- Add Joe to the game play screen? 
-- Remember to take out class      //  Possible future use (templates)
-- Sex max number for scoreboard 
-- Fix scoreboard conflict with animations 
-- Figure out how to stringify the array of scores objects (JSON.stringify?)
+
+
+Scoreboard
+- Set max number 
+- Internal formatting
+- Decoration
+- Interference with animations 
+- How to hide it
+- Li animations in order 
+
+Animations 
+- Adjust timing 
+- Consider adding Joe into game area
+- Make sure animations do not mess with scroll, screen limits, or scoreboard
+
+
+localStorage
+- Stringify the array of scores objects (JSON.stringify?)
 - Then assign it to local storage (Clear it first) 
 - Then retrieve it from local storage 
 - Parse()
-- Add animations to the intoduced li elements   // Will need for blackjack as well 
 */
+
 /*---------------------------------------------->
 Roots and Resets
 <----------------------------------------------*/
@@ -250,7 +263,7 @@ GAME PLAY
   margin-right: 10px;
 }
 
-.stall {
+.stash {
   height: 40px;
 }
 
@@ -262,6 +275,7 @@ GAME PLAY
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+  transition: all 0.1s linear;
 }
 
 .word-display {
@@ -437,6 +451,15 @@ animation-delay: 9.5s;
   }
 }
 
+@keyframes zoomInOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
 @keyframes dustEffect { /* Add small delay */
   0% {
     opacity: 1;
@@ -468,12 +491,20 @@ animation-delay: 9.5s;
   flex-direction: column;
 }
 
-.wobble {
-  animation: wobble 0.5s infinite;
+.zoom {
+  animation: zoomInOut 0.5s infinite;
+}
+
+.zoomier {
+  animation: zoomInOut 0.2s infinite;
 }
 
 .correct {  /* Change to a palette colour */
   color: #282;
+}
+
+.bg-color {
+  background-color: #e2c;
 }
 
 /*---------------------------------------------->
