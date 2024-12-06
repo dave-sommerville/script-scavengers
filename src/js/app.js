@@ -44,7 +44,7 @@ const endgameSound = select('.endgame-sound');
 const timerIcon = select('.dynamite');
 const viewScores = select('.view-scores');
 const scoresWrapper = select('.scores-wrapper');
-const scoresList = select('ul');
+const scoresList = select('.high-scores-list');
 
 /*-------------------------------------------------------------------------->
 		Variable Declarations

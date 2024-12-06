@@ -4,8 +4,6 @@ Design
 
 - Add responsive 404 sign 
 
-- Scoreboard formatting
-
 - Remove all words more than 10 characters long
   - Check again for double words 
 
@@ -17,8 +15,7 @@ Design
 Both
 - Music mute button
 - Home button 
-- Modal close 
-- Li animations in order 
+- Li animations 
 
 
 
@@ -58,7 +55,7 @@ Local Utils
 <----------------------------------------------*/
 
 .wobble {
-  animation: wobble 0.5s infinite;
+  animation: wobble 2s infinite ease-in-out;
 }
 
 .correct {
@@ -84,6 +81,10 @@ Local Utils
 
 .f-col {
   flex-direction: column;
+}
+
+.r-margin {
+  margin-right: 15px;
 }
 
 /*---------------------------------------------->
@@ -330,7 +331,6 @@ input[disabled] {
 /*---------------------------------------------->
 HIGH SCORES
 <----------------------------------------------*/
-
 .scores-wrapper {
   height: fit-content;
   width: 500px;
@@ -344,9 +344,15 @@ HIGH SCORES
   outline: 3px solid #fff;
   transition: all 0.4s ease-in-out;
 
+  &::backdrop {
+    background-color: rgb(44 5 11 / 0.1);
+    backdrop-filter: blur(20px);
+    animation: anim 0.25s linear;  
+  }
+
   .title {
     justify-content: space-between;
-    margin: var(--app-padding);
+    margin-bottom: var(--app-padding);
   }
 
   .trophy-wrap {
@@ -357,7 +363,7 @@ HIGH SCORES
     justify-content: center;
     align-items: center;
   }
-  
+
   h4 {
     display: block;
     text-align: center;
@@ -370,6 +376,14 @@ HIGH SCORES
     height: 45px;
     width: auto;
   }
+}
+
+.list-wrap {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
 }
 
 ul {
@@ -468,22 +482,15 @@ animation-delay: 9.5s;
 
 <----------------------------------------------*/
 
-@keyframes wobble { /* Adjust durations */
+@keyframes wobble {
   0% {
-    transform: rotate(0deg);
-  }
-  25% {
     transform: rotate(-5deg);
   }
   50% {
-    transform: rotate(0deg);
-  }
-  75% {
     transform: rotate(5deg);
   }
   100% {
-    transform: rotate(0deg);
-
+    transform: rotate(-5deg);
   }
 }
 
@@ -514,18 +521,19 @@ animation-delay: 9.5s;
   }
 }
 
+@keyframes anim {
+  from {
+    opacity: 0;
+    translate: 0 -8px;
+  } to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
 
 /*---------------------------------------------->
 ??? Try and clean up
 <----------------------------------------------*/
-
-.flex {
-  display: flex;
-}
-
-.f-col {
-  flex-direction: column;
-}
 
 .zoom {
   animation: zoomInOut 0.5s infinite;
@@ -535,7 +543,7 @@ animation-delay: 9.5s;
   animation: zoomInOut 0.2s infinite;
 }
 
-.correct {  /* Change to a palette colour */
+.correct { 
   color: var(--clr-medium);
 }
 
