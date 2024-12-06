@@ -154,13 +154,16 @@ function renderNextWord(arr) {
 /*-------------------------------------------------------------------------->
 		Start Game - Landing Screen
 <--------------------------------------------------------------------------*/
-
 function startGame() {
   userInput.disabled = false;
   shuffledWords = shuffleWords(wordBank);  
   totalWords = shuffledWords.length; 
   hits = 0;  
   gameOver = false; 
+
+  // Reset timer icon classes
+  timerIcon.classList.remove('zoom', 'zoomier');
+
   startTimer();  
   renderNextWord(shuffledWords); 
   listenForTyping(); 
