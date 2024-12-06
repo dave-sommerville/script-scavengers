@@ -50,6 +50,9 @@ const scoresList = select('ul');
 		Variable Declarations
 <--------------------------------------------------------------------------*/
 
+// One Line Shuffle Function
+const shuffleWords = arr => arr.sort(() => Math.random() - 0.5);
+
 let maxTime = 25;  
 let gameOver = false;
 let hits = 0;  
@@ -60,19 +63,6 @@ let startTime = new Date();
 let timerInterval; 
 const scoresStorage = [];
 
-/*-------------------------------------------------------------------------->
-		Shuffle Function 
-<--------------------------------------------------------------------------*/
-
-// Switch back to the sort one liner
-
-function shuffleWords(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
 
 /*-------------------------------------------------------------------------->
 		Date Display Function 
@@ -87,7 +77,6 @@ function getDate() {
 
   return new Date().toLocaleDateString('en-ca', options);
 }
-
 
 /*-------------------------------------------------------------------------->
 		Timer Functions 
