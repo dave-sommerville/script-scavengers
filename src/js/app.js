@@ -230,63 +230,68 @@ listen('click', viewScores, function () {
   scoresWrapper.classList.toggle('slide'); 
 });
 
-function listenForTyping() {
-  listen('input', userInput, function () {
-    if (gameOver) return;
 
-    const currentWord = wordDisplay.innerText.toLowerCase();  
-    const userTyped = userInput.value.trimStart().toLowerCase();  
+// RE CHECK THIS TO SEE IF IT'S WORKING RIGHT
+function handleInput() {
+  if (gameOver) return;
 
-    const wordSpans = wordDisplay.querySelectorAll('span');
+  const currentWord = wordDisplay.innerText.toLowerCase();  
+  const userTyped = userInput.value.trimStart().toLowerCase();  
 
-    wordSpans.forEach((span, index) => {
+  const wordSpans = wordDisplay.querySelectorAll('span');
+
+  wordSpans.forEach((span, index) => {
       if (userTyped[index] === span.innerText.toLowerCase()) { 
-        addClass(span, 'correct'); 
+          addClass(span, 'correct'); 
       } else {
-        removeClass(span, 'correct'); 
+          removeClass(span, 'correct'); 
       }
-    });
+  });
 
-    if (userTyped === currentWord) {
+  if (userTyped === currentWord) {
       hits++;
       pointSoundEffect.play();
       shuffledWords.shift();  
       userInput.value = ''; 
 
       displayHits();
-      
+
       if (shuffledWords.length === 0) { 
-        gameOver = true;  
-        backgroundMusic.pause();
-        endgameSound.play();
-        userInput.disabled = true;
-        calculateScore();  
-        clearInterval(timerInterval); 
+          gameOver = true;  
+          backgroundMusic.pause();
+          endgameSound.play();
+          userInput.disabled = true;
+          calculateScore();  
+          clearInterval(timerInterval); 
       } else {
-        renderNextWord(shuffledWords); 
+          renderNextWord(shuffledWords); 
       }
-    }
-  });
+  }
+}
 
-  listen('keydown', userInput, function (e) {
-    if (gameOver) return;
+function handleKeydown(e) {
+  if (gameOver) return;
 
-    const currentWord = wordDisplay.innerText.toLowerCase();  
-    const userTyped = userInput.value.trimStart().toLowerCase();  
+  const currentWord = wordDisplay.innerText.toLowerCase();  
+  const userTyped = userInput.value.trimStart().toLowerCase();  
 
-    if (e.key === 'Backspace' && userTyped.length > 0) {
+  if (e.key === 'Backspace' && userTyped.length > 0) {
       const lastTypedIndex = userTyped.length - 1;
 
       const isCorrectSoFar = userTyped
-        .slice(0, lastTypedIndex + 1)
-        .split('')
-        .every((char, index) => char === currentWord[index]);
+          .slice(0, lastTypedIndex + 1)
+          .split('')
+          .every((char, index) => char === currentWord[index]);
 
       if (isCorrectSoFar && userTyped[lastTypedIndex] === currentWord[lastTypedIndex]) {
-        e.preventDefault();
+          e.preventDefault();
       }
-    }
-  });
+  }
+}
+
+function listenForTyping() {
+  listen('input', userInput, handleInput);
+  listen('keydown', userInput, handleKeydown);
 }
 
 function displayHits() {
