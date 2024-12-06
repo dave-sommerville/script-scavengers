@@ -322,3 +322,27 @@ function calculateScore() {
   console.log(scoresStorage); 
 }
 
+function populateScoreList(scores, ulElement) {
+  ulElement.innerHTML = '';
+
+  scores.forEach(score => {
+      const li = createScoreListItem(score); 
+      ulElement.appendChild(li);            
+  });
+}
+
+function createScoreListItem(score) {
+  const li = create('li');
+  addClass(li, 'score-item'); 
+
+  const details = `
+      <span class="score-date">📅 ${score.date}</span> | 
+      <span class="score-hits">🔥 Hits: ${score.hits}</span> | 
+      <span class="score-percentage">🎯 Accuracy: ${score.percentage}%</span>
+  `;
+
+  li.innerHTML = details;
+
+  return li; 
+}
+
