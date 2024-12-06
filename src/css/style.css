@@ -2,9 +2,6 @@
 /*
 - Add responsive 404 sign 
 
-- Remove all words more than 10 characters long
-  - Check again for double words 
-
 - Organize code for god's sake man 
 - Mute button
 - Random timers 
@@ -12,7 +9,6 @@
   - Birds
   - Wind noise? 
   - Joe's comments? 
-
 
 
 */
@@ -405,6 +401,50 @@ ul {
 }
 
 /*---------------------------------------------->
+
+<----------------------------------------------*/
+
+.small-screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: var(--clr-light);
+  justify-content: center;
+  align-items: center;
+  display: none;
+  
+    p {
+      font-size: 1.6rem;
+      text-align: center;
+      margin: var(--app-padding);
+    }
+
+    img {
+      width: 30svw;
+      height: auto;
+    }
+
+    button {
+      width: 150px;
+      height: 150px;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      border-radius: 50%;
+      background: var(--clr-orange) url('../img/dynamite.png') no-repeat center center;
+      background-size: contain;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        filter: brightness(1.2);
+        transform: scale(1.02);
+      }
+    }
+}
+
+/*---------------------------------------------->
 ANIMATION ELEMENTS
 <----------------------------------------------*/
 
@@ -662,4 +702,13 @@ Animation Paths
   transform: translateY(0vh) translateX(110vw) scale(0.45);
 }
 
+}
+
+@media (max-width: 900px) {
+  .start-scrn, .game-area, .animations, .canyon-mid, .canyon-back, .canyon-front, .scavenger-joe {
+    display: none;
+  }
+  .small-screen {
+    display: flex;
+  }
 }
