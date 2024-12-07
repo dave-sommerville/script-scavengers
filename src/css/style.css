@@ -318,7 +318,12 @@ input[disabled] {
 
 .home {
   left: 140px; 
-  background: var(--clr-medium) url('../img/home.png') no-repeat center center;
+  background: 
+    var(--clr-medium) 
+    url('../img/home.png') 
+    no-repeat 
+    center 
+    center;
   background-size: 70%;
   cursor: pointer;
 }
@@ -326,17 +331,32 @@ input[disabled] {
 .mute {
   left: 20px;
   cursor: pointer;
-  background: var(--clr-lightest) url('../img/mute.png') no-repeat center center;
+  background: 
+    var(--clr-lightest) 
+    url('../img/mute.png') 
+    no-repeat 
+    center 
+    center;
   background-size: 70%;
 }
 
 .muted {
-  background: var(--clr-lightest) url('../img/mute.png') no-repeat center center;
+  background: 
+    var(--clr-lightest) 
+    url('../img/mute.png') 
+    no-repeat 
+    center 
+    center;
   background-size: 70%;
 }
 
 .unmuted {
-  background: var(--clr-lightest) url('../img/unmute.png') no-repeat center center;
+  background: 
+    var(--clr-lightest) 
+    url('../img/unmute.png') 
+    no-repeat 
+    center 
+    center;
   background-size: 70%;
 }
 
@@ -446,7 +466,12 @@ ul {
       outline: none;
       text-decoration: none;
       border-radius: 50%;
-      background: var(--clr-orange) url('../img/dynamite.png') no-repeat center center;
+      background: 
+        var(--clr-orange) 
+        url('../img/dynamite.png') 
+        no-repeat 
+        center 
+        center;
       background-size: contain;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
@@ -517,8 +542,15 @@ ul {
 
 
 .bird {
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg');
-  filter: invert(34%) sepia(55%) saturate(427%) hue-rotate(141deg) brightness(93%) contrast(91%);
+  background-image: 
+  url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg');
+  filter: 
+    invert(34%) 
+    sepia(55%) 
+    saturate(427%) 
+    hue-rotate(141deg) 
+    brightness(93%) 
+    contrast(91%);
   background-size: auto 100%;
   width: 88px;
   height: 125px;
