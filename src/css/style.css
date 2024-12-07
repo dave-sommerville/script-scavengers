@@ -12,7 +12,7 @@
   --clr-yellow: #ffcf35;
   --clr-orange: #fb8443;
 
-  --app-padding: 25px;
+  --app-spacing: 25px;
   --app-border-rad: 8px;
 }
 
@@ -156,7 +156,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: var(--app-padding);
+  padding: var(--app-spacing);
   width: fit-content;
   height: fit-content;
   text-align: center;
@@ -169,7 +169,7 @@ main {
   border: solid 3px var(--clr-dark);
   box-shadow:  2px 1px 3px rgb(250 250 250 / 0.5), 
     -2px -1px 3px rgb(0 0 0 / 0.5);
-  padding: var(--app-padding);
+  padding: var(--app-spacing);
   width: 500px;
   height: fit-content;
   text-align: center;
@@ -238,7 +238,7 @@ main {
   outline: solid 0.5px #fff;
   box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
     inset 2px 1px 3px rgb(0 0 0 / 0.5);
-  padding: var(--app-padding) var(--app-padding) 0px var(--app-padding);
+  padding: var(--app-spacing) var(--app-spacing) 0px var(--app-spacing);
   border-radius: var(--app-border-rad);
 }
 
@@ -351,7 +351,7 @@ input[disabled] {
   width: 500px;
   margin: auto;
   position: fixed;
-  padding: var(--app-padding);
+  padding: var(--app-spacing);
   z-index: 2000;
   background-color: var(--clr-light);
   border-radius: var(--app-border-rad);
@@ -367,7 +367,7 @@ input[disabled] {
 
   .title {
     justify-content: space-between;
-    margin-bottom: var(--app-padding);
+    margin-bottom: var(--app-spacing);
   }
 
   .trophy-wrap {
@@ -436,7 +436,7 @@ ul {
     p {
       font-size: 1.6rem;
       text-align: center;
-      margin: var(--app-padding);
+      margin: var(--app-spacing);
     }
 
     img {
