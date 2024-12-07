@@ -48,7 +48,7 @@ const scoresList = select('.high-scores-list');
 const homeButton = select('.home');
 
 /*-------------------------------------------------------------------------->
-		Variable Declarations
+	Variable Declarations
 <--------------------------------------------------------------------------*/
 
 // One Line Shuffle Function
@@ -62,7 +62,7 @@ let totalWords;
 let shuffledWords = shuffleWords(wordBank);  
 let startTime = new Date();  
 let timerInterval; 
-const scoresStorage = [];
+const scoresStorage = []; // look into 
 
 
 /*-------------------------------------------------------------------------->

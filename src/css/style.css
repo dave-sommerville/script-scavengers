@@ -1,16 +1,14 @@
 @charset "utf-8";
 /*
-- Add responsive 404 sign 
-
 - Organize code for god's sake man 
 - Mute button
+- Sound button 
 - Random timers 
   - Tumbleweed
   - Birds
   - Wind noise? 
   - Joe's comments? 
-
-
+- Cursor pointer in the dialog function 
 */
 
 /*---------------------------------------------->
@@ -80,17 +78,21 @@ Local Utils
   animation: liFadeIn 0.5s ease-out forwards;
 }
 
-@keyframes liFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.zoom {
+  animation: zoomInOut 0.5s infinite;
 }
 
+.zoomier {
+  animation: zoomInOut 0.2s infinite;
+}
+
+.correct { 
+  color: var(--clr-medium);
+}
+
+.bg-color {
+  background-color: var(--clr-yellow);
+}
 
 /*---------------------------------------------->
 Background Display
@@ -141,19 +143,6 @@ main {
 }
 
 /*---------------------------------------------->
-<----------------------------------------------*/
-
-
-h3 {
-  font-size: 2rem;
-  display: block;
-  line-height: 60px;
-  color: var(--clr-dark);
-  text-align: center;
-}
-
-
-/*---------------------------------------------->
 START SCREEN
 <----------------------------------------------*/
 
@@ -195,18 +184,15 @@ START SCREEN
   width: 500px;
   height: fit-content;
   text-align: center;
-
   h1 {
     font-size: 2.2rem;
     color: var(--clr-dark);
     margin: 0 0 22px 0;
   }
-
   p {
     font-size: 1.1rem;
     line-height: 22px;
   }
-
   img {
     width: 180px;
     height: 120px;
@@ -214,7 +200,6 @@ START SCREEN
     border-radius: var(--app-border-rad);
     border: solid 3px var(--clr-dark);
   }
-  
 }
 
 .button-wrapper {
@@ -266,6 +251,14 @@ GAME PLAY
     inset 2px 1px 3px rgb(0 0 0 / 0.5);
   padding: var(--app-padding) var(--app-padding) 0px var(--app-padding);
   border-radius: var(--app-border-rad);
+}
+
+h3 {
+  font-size: 2rem;
+  display: block;
+  line-height: 60px;
+  color: var(--clr-dark);
+  text-align: center;
 }
 
 .dynamite {
@@ -401,7 +394,7 @@ ul {
 }
 
 /*---------------------------------------------->
-
+SMALL SCREEN ERROR MESSAGE
 <----------------------------------------------*/
 
 .small-screen {
@@ -528,7 +521,7 @@ animation-delay: 9.5s;
 
 
 /*---------------------------------------------->
-
+ANIMATIONS
 <----------------------------------------------*/
 
 @keyframes wobble {
@@ -580,29 +573,17 @@ animation-delay: 9.5s;
   }
 }
 
-/*---------------------------------------------->
-??? Try and clean up
-<----------------------------------------------*/
 
-.zoom {
-  animation: zoomInOut 0.5s infinite;
+@keyframes liFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.zoomier {
-  animation: zoomInOut 0.2s infinite;
-}
-
-.correct { 
-  color: var(--clr-medium);
-}
-
-.bg-color {
-  background-color: var(--clr-yellow);
-}
-
-/*---------------------------------------------->
-Animation Paths 
-<----------------------------------------------*/
 
 @keyframes tumbleRight {
   0% {
@@ -621,8 +602,6 @@ Animation Paths
     transform: translateX(1800px) rotate(1440deg);
   }
 }
-
-
 
 @keyframes fly-cycle {
 
@@ -703,6 +682,10 @@ Animation Paths
 }
 
 }
+
+/*---------------------------------------------->
+MEDIA QUERY
+<----------------------------------------------*/
 
 @media (max-width: 900px) {
   .start-scrn, .game-area, .animations, .canyon-mid, .canyon-back, .canyon-front, .scavenger-joe {
