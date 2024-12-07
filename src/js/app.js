@@ -349,6 +349,9 @@ function toGameArea () {
   
   gameArea.classList.toggle('hidden');
   gameArea.classList.toggle('visible');
+  if (muteButton.classList.contains('hidden')) {
+    muteButton.classList.remove('hidden');
+  }  
 }
 
 function returnHome() {

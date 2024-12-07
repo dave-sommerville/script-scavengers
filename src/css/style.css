@@ -317,14 +317,14 @@ input[disabled] {
 }
 
 .home {
-  left: 20px; 
+  left: 140px; 
   background: var(--clr-medium) url('../img/home.png') no-repeat center center;
   background-size: 70%;
   cursor: pointer;
 }
 
 .mute {
-  left: 140px;
+  left: 20px;
   cursor: pointer;
   background: var(--clr-lightest) url('../img/mute.png') no-repeat center center;
   background-size: 70%;
