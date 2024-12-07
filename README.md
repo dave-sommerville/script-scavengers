@@ -1,6 +1,6 @@
 
 # Script Scavengers : Typing Game
-Script Scavenger is a fun and challenging typing game designed to improve your typing speed and accuracy. Players are presented with a series of words or phrases that they must type accurately within a time limit. As players progress, the difficulty increases, with longer words and faster typing speeds.
+Script Scavenger is an engaging typing game set in a post-apocalyptic world. Players race against time to type displayed words correctly, scavenging as much "junk" as possible before time runs out. The game's dynamic design features explosive visuals, high-score tracking, and a fast-paced challenge that rewards quick thinking and accuracy.
 ## Features
 - Word-based gameplay: Players type individual words or short phrases.
 - Time-based challenges: Players must type within a time limit to earn points.
@@ -15,14 +15,18 @@ Script Scavenger is a fun and challenging typing game designed to improve your t
 ### Preview
 ![Webpage Preview](./src/img/scrnshot01.png)
 
-<a href="https://www.freepik.com/icon/dynamite_478968#fromView=search&page=1&position=9&uuid=42476eae-aff9-419a-96a3-c8c357c6a29f">Icon by Freepik</a>
-Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132">Pixabay</a>
-Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132">Pixabay</a>
-<a href="https://www.freepik.com/icon/treasure_507754">Icon by Freepik</a>
-Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614">freesound_community</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614">Pixabay</a>
-<a href="https://www.freepik.com/icon/treasure_507754">Icon by Freepik</a>
-Icon by <a class="link_pro" href="https://freeicons.io/video-game-icon-set-3/trophy-winner-gaming-electronics-compettition-icon-159125">WANICON</a> on <a href="https://freeicons.io">freeicons.io</a>Icon by <a class="link_pro" href="https://freeicons.io/awards-2/trophy-awards-achievement.trophy-champions.cup-winner-icon-699049">Moudesain</a> on <a href="https://freeicons.io">freeicons.io</a>
-Icon by <a class="link_pro" href="https://freeicons.io/real-estate-icon-set-38381/apartment-chalet-home-house-rural-shack-villa-icon-1560614">Pexelpy</a> on <a href="https://freeicons.io">freeicons.io</a>
-Icon by <a class="link_pro" href="https://freeicons.io/multimedia-8/mute-silent-sound-off-no-sound-volume-icon-731028">Hilmy Abiyyu Asad</a> on <a href="https://freeicons.io">freeicons.io</a>
-Icon by <a class="link_pro" href="https://freeicons.io/material-icons-alert-and-av/volume-off-icon-16092">icon king1</a> on <a href="https://freeicons.io">freeicons.io</a>
-Icon by <a class="link_pro" href="https://freeicons.io/material-icons-alert-and-av/volume-up-icon-16100">icon king1</a> on <a href="https://freeicons.io">freeicons.io</a>
+### Attribution
+
+#### Icons
+- **[Dynamite Icon](https://www.freepik.com/icon/dynamite_478968#fromView=search&page=1&position=9&uuid=42476eae-aff9-419a-96a3-c8c357c6a29f)** by [Freepik](https://www.freepik.com)
+- **[Treasure Icon](https://www.freepik.com/icon/treasure_507754)** by [Freepik](https://www.freepik.com)
+- **[Trophy Winner Icon](https://freeicons.io/video-game-icon-set-3/trophy-winner-gaming-electronics-compettition-icon-159125)** by [WANICON](https://freeicons.io)
+- **[Trophy Awards Icon](https://freeicons.io/awards-2/trophy-awards-achievement.trophy-champions.cup-winner-icon-699049)** by [Moudesain](https://freeicons.io)
+- **[Apartment Chalet Icon](https://freeicons.io/real-estate-icon-set-38381/apartment-chalet-home-house-rural-shack-villa-icon-1560614)** by [Pexelpy](https://freeicons.io)
+- **[Mute Icon](https://freeicons.io/multimedia-8/mute-silent-sound-off-no-sound-volume-icon-731028)** by [Hilmy Abiyyu Asad](https://freeicons.io)
+- **[Volume Off Icon](https://freeicons.io/material-icons-alert-and-av/volume-off-icon-16092)** by [icon king1](https://freeicons.io)
+- **[Volume Up Icon](https://freeicons.io/material-icons-alert-and-av/volume-up-icon-16100)** by [icon king1](https://freeicons.io)
+
+#### Sound Effects
+- **[Sound Effect](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132)** by [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132) from [Pixabay](https://pixabay.com)
+- **[Sound Effect](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614)** by [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614) from [Pixabay](https://pixabay.com)
