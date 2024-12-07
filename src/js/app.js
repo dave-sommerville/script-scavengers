@@ -47,6 +47,7 @@ const scoresWrapper = select('.scores-wrapper');
 const scoresList = select('.high-scores-list');
 const homeButton = select('.home');
 const muteButton = select('.mute');
+const boomButton = select('.boom');
 
 /*-------------------------------------------------------------------------->
 	Variable Declarations
@@ -55,7 +56,7 @@ const muteButton = select('.mute');
 // Returned to the one liner shuffle for elegance 
 const shuffleWords = arr => arr.sort(() => Math.random() - 0.5);
 
-let maxTime = 25;  
+let maxTime = 20;  
 let gameOver = false;
 let hits = 0;  
 let totalWords;  
@@ -106,7 +107,7 @@ function updateTimer() {
 
 function startTimer() {
   startTime = new Date();  
-  timer.innerText = '99'; 
+  timer.innerText = '20'; 
   gameOver = false; 
 
   timerInterval = setInterval(() => {
@@ -182,6 +183,15 @@ function startGame() {
 /*-------------------------------------------------------------------------->
 	INPUT HANDLERS
 <--------------------------------------------------------------------------*/
+
+function pointAnimation() {
+  stashBackground.classList.add('bg-color');
+
+  setTimeout(() => {
+      stashBackground.classList.remove('bg-color');
+  }, 200); 
+}
+
 function handleInput() {
   if (gameOver) return;
 
@@ -355,18 +365,18 @@ function returnHome() {
 // Maybe need to change icon ?? 
 function muteMusic() {
   if (backgroundMusic.muted) {
+
     backgroundMusic.muted = false;
   } else {
     backgroundMusic.muted = true;
   }
 }
 
-function pointAnimation() {
-  stashBackground.classList.add('bg-color');
-
-  setTimeout(() => {
-      stashBackground.classList.remove('bg-color');
-  }, 200); 
+function playSound(audioUrl) {
+  const audio = new Audio(audioUrl);
+  audio.play().catch(error => {
+    soundError.innerText = `Your sound cannot play: ${error}`
+  });
 }
 
 /*-------------------------------------------------------------------------->
@@ -410,3 +420,7 @@ listen('click', homeButton, () => {
   returnHome();
 });
 
+listen('click', boomButton, () => {
+  endgameSound.currentTime = 0;
+  endgameSound.play();
+});
