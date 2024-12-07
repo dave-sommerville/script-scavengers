@@ -1,7 +1,7 @@
 'use strict';
 import { wordBank } from "./word-bank.js";
 /*-------------------------------------------------------------------------->
-		Utility Functions
+	UTILITY FUNCTIONS
 <--------------------------------------------------------------------------*/
 function create(element) {
   const newElement = document.createElement(element); 
@@ -27,7 +27,7 @@ function removeClass(element, customClass) {
 }
 
 /*-------------------------------------------------------------------------->
-	Element Selectors
+	ELEMENT SELECTORS 
 <--------------------------------------------------------------------------*/
 const startButton = select('.start-btn');
 const startScrn = select('.start-scrn-wrapper');
@@ -50,7 +50,7 @@ const muteButton = select('.mute');
 const boomButton = select('.boom');
 
 /*-------------------------------------------------------------------------->
-	Variable Declarations
+	VARIABLE DECLARATIONS
 <--------------------------------------------------------------------------*/
 
 // Returned to the one liner shuffle for elegance 
@@ -60,15 +60,15 @@ let maxTime = 20;
 let gameOver = false;
 let hits = 0;  
 let totalWords;  
+
 //	Um, for some reason I can't use const with this?? look into 
 let shuffledWords = shuffleWords(wordBank);  
 let startTime = new Date();  
 let timerInterval; 
-const scoresStorage = []; // look into 
 
 
 /*-------------------------------------------------------------------------->
-		Date Display Function 
+	DATE
 <--------------------------------------------------------------------------*/
 
 function getDate() {
@@ -82,7 +82,7 @@ function getDate() {
 }
 
 /*-------------------------------------------------------------------------->
-		Timer Functions 
+	TIMER
 <--------------------------------------------------------------------------*/
 
 function updateTimer() {
@@ -138,7 +138,7 @@ function getTimerTime() {
 }
 
 /*-------------------------------------------------------------------------->
-		Display Word
+	DISPLAY TARGET WORDS
 <--------------------------------------------------------------------------*/
 
 function renderNextWord(arr) {
@@ -155,7 +155,7 @@ function renderNextWord(arr) {
 }
 
 /*-------------------------------------------------------------------------->
-		Start Game - Landing Screen
+	START GAME
 <--------------------------------------------------------------------------*/
 function startGame() {
   userInput.disabled = false;
@@ -306,7 +306,6 @@ function populateScoreList(scores) {
     scoresList.appendChild(li);
   });
 }
-
 /*-------------------------------------------------------------------------->
 	CALCULATE SCORE 
 <--------------------------------------------------------------------------*/
@@ -337,9 +336,7 @@ function calculateScore() {
   if (existingScores.length > 10) {
     existingScores = existingScores.slice(0, 10);
   }
-
   saveScoresToLocalStorage(existingScores);
-
   populateScoreList(existingScores);
 }
 
@@ -362,21 +359,16 @@ function returnHome() {
   gameArea.classList.toggle('visible');
 }
 
-// Maybe need to change icon ?? 
 function muteMusic() {
+  backgroundMusic.muted = !backgroundMusic.muted; 
+
   if (backgroundMusic.muted) {
-
-    backgroundMusic.muted = false;
+    muteButton.classList.remove('unmuted');
+    muteButton.classList.add('muted');
   } else {
-    backgroundMusic.muted = true;
+    muteButton.classList.remove('muted');
+    muteButton.classList.add('unmuted');
   }
-}
-
-function playSound(audioUrl) {
-  const audio = new Audio(audioUrl);
-  audio.play().catch(error => {
-    soundError.innerText = `Your sound cannot play: ${error}`
-  });
 }
 
 /*-------------------------------------------------------------------------->
@@ -416,6 +408,7 @@ listen('click', scoresWrapper, function(ev) {
 listen('click', muteButton, () => {
   muteMusic();
 });
+
 listen('click', homeButton, () => {
   returnHome();
 });

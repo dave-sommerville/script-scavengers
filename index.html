@@ -19,9 +19,9 @@
   <script src="./src/js/app.js" type="module"></script>  
 </head>
 <body>	
-  <main class="test flex f-col"> <!--	Likely will not need middle layer -->
+  <main class="test flex f-col"> 
 		<img src="./src/img/farthest.png" class="canyon-back">
-		<img src="./src/img/mid.png" class="canyon-mid"> <!-- Wanting to have a little dude animation-->
+		<img src="./src/img/mid.png" class="canyon-mid"> 
 		<img src="./src/img/nearest.png" class="canyon-front">
 		<section class="start-scrn-wrapper visible"> 
 			<!-- This wrapper is to free the screen from the animation layers-->
@@ -79,14 +79,11 @@
 					<button class="restart-reset">RESET</button>
 					<button class="view-scores">HIGH SCORES</button>
 				</div>
-        <button class="home">HOME</button>
-        <button class="mute">MUTE</button>
-        
+        <button class="home"></button>
+        <button class="mute unmuted"></button>
 		</section>
 		
-<!----------------------------------------------------------/
-HIGH SCORES
-/----------------------------------------------------------->
+<!----------------SCORES WRAPPER ---------------------->
 
 		<dialog class="scores-wrapper">
 			<div class="high-scores flex f-col">
@@ -99,7 +96,6 @@ HIGH SCORES
             <img src="./src/img/trophy.png" class="wobble">
           </div>
         </div>
-        <!-- Should be able to label the sections with a <p> -->
         <div class="list-wrap flex">
           <ul class="r-margin">
             <li>01 |</li>
@@ -118,9 +114,7 @@ HIGH SCORES
 			</div>
 		</dialog>
 
-<!----------------------------------------------------------/
-ANIMATIONS 
-/----------------------------------------------------------->
+<!--------------ANIMATIONS -------------------------->
 
 		<section class="animations">
 			<div class="tumbleweed1"></div>
@@ -139,9 +133,7 @@ ANIMATIONS
 				<div class="bird bird-four"></div>
 			</div>
 		</section>
-<!----------------------------------------------------------/
-MUSIC
-/----------------------------------------------------------->
+<!----------------- MUSIC ----------------------------->
 		<section>
 			<audio class="background-music" loop>
 				<source src="./src/media/background.mp3" type="audio/mp3">
@@ -156,7 +148,6 @@ MUSIC
 				Your browser does not support the audio element.
 			</audio>		
 		</section>
-
 	</main>
     <footer class="small-screen flex f-col">
       <p>

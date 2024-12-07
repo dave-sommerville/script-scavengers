@@ -1,6 +1,6 @@
 @charset "utf-8";
 /*---------------------------------------------->
-Roots and Resets
+  ROOTS
 <----------------------------------------------*/
 
 :root {
@@ -16,15 +16,14 @@ Roots and Resets
   --app-border-rad: 8px;
 }
 
-body {
-  font-family: "Press Start 2P", "IMB Plex Mono", monospace;
-  background-color: var(  --clr-darkest);
-  color: var(--clr-medium);
-  overflow-x: hidden;
+button {
+  outline: none;
+  border: none;
+  text-decoration: none;
 }
 
 /*---------------------------------------------->
-Local Utils 
+  UTILITY FUNCTIONS
 <----------------------------------------------*/
 
 .wobble {
@@ -78,11 +77,15 @@ Local Utils
   color: var(--clr-medium);
 }
 
-
-
 /*---------------------------------------------->
-Background Display
+  BACKGROUND
 <----------------------------------------------*/
+body {
+  font-family: "Press Start 2P", "IMB Plex Mono", monospace;
+  background-color: var(  --clr-darkest);
+  color: var(--clr-medium);
+  overflow-x: hidden;
+}
 
 main {
   height: 100svh;
@@ -129,7 +132,7 @@ main {
 }
 
 /*---------------------------------------------->
-START SCREEN
+  START SCREEN
 <----------------------------------------------*/
 
 .info {
@@ -224,7 +227,7 @@ START SCREEN
 }
 
 /*---------------------------------------------->
-GAME PLAY
+  GAME PLAY
 <----------------------------------------------*/
 
 .game-display {
@@ -307,8 +310,41 @@ input[disabled] {
   margin: 4px 0;
 }
 
+.home, .mute {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 10000;
+  bottom: 20px;
+}
+
+.home {
+  left: 20px; 
+  background: var(--clr-medium) url('../img/home.png') no-repeat center center;
+  background-size: 70%;
+  cursor: pointer;
+}
+
+.mute {
+  left: 140px;
+  cursor: pointer;
+  background: var(--clr-lightest) url('../img/mute.png') no-repeat center center;
+  background-size: 70%;
+}
+
+.muted {
+  background: var(--clr-lightest) url('../img/mute.png') no-repeat center center;
+  background-size: 70%;
+}
+
+.unmuted {
+  background: var(--clr-lightest) url('../img/unmute.png') no-repeat center center;
+  background-size: 70%;
+}
+
 /*---------------------------------------------->
-HIGH SCORES
+  HIGH SCORES
 <----------------------------------------------*/
 .scores-wrapper {
   height: fit-content;
@@ -384,7 +420,7 @@ ul {
 }
 
 /*---------------------------------------------->
-SMALL SCREEN ERROR MESSAGE
+  SMALL SCREEN ERROR MESSAGE
 <----------------------------------------------*/
 
 .small-screen {
@@ -428,16 +464,15 @@ SMALL SCREEN ERROR MESSAGE
 }
 
 
-/*              */
+
+/*---------------------------------------------->
+  ANIMATION ELEMENTS
+<----------------------------------------------*/
 .bg-color {
   background-color: var(--clr-yellow);
 }
 
-/*---------------------------------------------->
-ANIMATION ELEMENTS
-<----------------------------------------------*/
-
- .tumbleweed1 {
+.tumbleweed1 {
   width: 55px;
   height: 55px;
   background-image: url('../img/tumbleweed-drawing.svg'); 
@@ -484,40 +519,39 @@ ANIMATION ELEMENTS
 }
 
 .bird-container {
-position: absolute;
-top: 10%;
-left: -3%;
-transform: scale(0) translateX(-10vw);
-will-change: transform;
+  position: absolute;
+  top: 10%;
+  left: -3%;
+  transform: scale(0) translateX(-10vw);
+  will-change: transform;
 
-animation-name: fly-right-one;
-animation-timing-function: linear;
-animation-iteration-count: infinite;
+  animation-name: fly-right-one;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 .bird-container-one {
-animation-duration: 15s;
-animation-delay: 0;
+  animation-duration: 15s;
+  animation-delay: 0;
 }
 
 .bird-container-two {
-animation-duration: 16s;
-animation-delay: 1s;
+  animation-duration: 16s;
+  animation-delay: 1s;
 }
 
 .bird-container-three {
-animation-duration: 14.6s;
-animation-delay: 9.5s;
+  animation-duration: 14.6s;
+  animation-delay: 9.5s;
 }
 
 .bird-container-four {
-  animation-duration: 16s;
-  animation-delay: 10.25s;
+    animation-duration: 16s;
+    animation-delay: 10.25s;
 }
 
-
 /*---------------------------------------------->
-ANIMATIONS
+  ANIMATIONS
 <----------------------------------------------*/
 
 @keyframes wobble {
@@ -568,7 +602,6 @@ ANIMATIONS
     translate: 0 0;
   }
 }
-
 
 @keyframes liFadeIn {
   0% {
@@ -680,7 +713,7 @@ ANIMATIONS
 }
 
 /*---------------------------------------------->
-MEDIA QUERY
+  MEDIA QUERY
 <----------------------------------------------*/
 
 @media (max-width: 900px) {
