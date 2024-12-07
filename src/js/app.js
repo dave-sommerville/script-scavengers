@@ -46,19 +46,20 @@ const viewScores = select('.view-scores');
 const scoresWrapper = select('.scores-wrapper');
 const scoresList = select('.high-scores-list');
 const homeButton = select('.home');
+const muteButton = select('.mute');
 
 /*-------------------------------------------------------------------------->
 	Variable Declarations
 <--------------------------------------------------------------------------*/
 
-// One Line Shuffle Function
+// Returned to the one liner shuffle for elegance 
 const shuffleWords = arr => arr.sort(() => Math.random() - 0.5);
 
 let maxTime = 25;  
 let gameOver = false;
 let hits = 0;  
 let totalWords;  
-//	Um, for some reason I can't use const with this?? 
+//	Um, for some reason I can't use const with this?? look into 
 let shuffledWords = shuffleWords(wordBank);  
 let startTime = new Date();  
 let timerInterval; 
@@ -159,23 +160,16 @@ function startGame() {
   userInput.disabled = false;
   shuffledWords = shuffleWords(wordBank);  
   totalWords = shuffledWords.length; 
-  hits = 0;  // Reset hits to 0
+  hits = 0; 
   gameOver = false;
-
-  // Reset timer icon classes
   timerIcon.classList.remove('zoom', 'zoomier');
 
   startTimer();  
   renderNextWord(shuffledWords); 
-  listenForTyping(); 
   backgroundMusic.currentTime = 0;  
   backgroundMusic.play();          
   userInput.focus();
-
-  // Check for scores in local storage
   const topScores = loadScoresFromLocalStorage();
-
-  // Toggle visibility of view-scores button based on high scores presence
   if (topScores.length > 0) {
     viewScores.classList.remove('hidden');
     viewScores.classList.add('visible');
@@ -185,37 +179,9 @@ function startGame() {
   }
 }
 
-
 /*-------------------------------------------------------------------------->
-		Event Observers 
+	INPUT HANDLERS
 <--------------------------------------------------------------------------*/
-
-listen('click', startButton, function () {
-		startScrn.classList.toggle('hidden');
-		startScrn.classList.toggle('visible');
-		
-		gameArea.classList.toggle('hidden');
-		gameArea.classList.toggle('visible');
-	startGame();  
-	userInput.focus();
-});
-
-listen('click', beginGame, function () {
-  startGame(); 
-});
-
-listen('click', viewScores, () => {
-  scoresWrapper.showModal();
-});
-
-function pointAnimation() {
-    stashBackground.classList.add('bg-color');
-
-    setTimeout(() => {
-        stashBackground.classList.remove('bg-color');
-    }, 200); 
-  }
-
 function handleInput() {
   if (gameOver) return;
 
@@ -274,23 +240,37 @@ function handleKeydown(e) {
   }
 }
 
-// May need to change this a little still, but I kind of like it
-function listenForTyping() {
-  listen('input', userInput, handleInput);
-  listen('keydown', userInput, handleKeydown);
-}
 
-//    PAD START! So cool 
+/*-------------------------------------------------------------------------->
+	ORDERED FUNCTIONS 
+<--------------------------------------------------------------------------*/
+ 
 function displayHits() {
   scoreboard.innerText = hits.toString().padStart(2, '0');
 }
-
-
-setInterval(function(){
+setInterval(function() {
   displayHits;
 }, 1000);
 
+function saveScoresToLocalStorage(scores) {
+  const topScores = scores.slice(0, 10);
+  const scoresJSON = JSON.stringify(topScores);
+  localStorage.setItem('scores', scoresJSON);
+}
 
+function loadScoresFromLocalStorage() {
+  const scoresJSON = localStorage.getItem('scores');
+  if (scoresJSON) {
+    let scores = JSON.parse(scoresJSON);
+    scores = scores.filter(score => score.hits > 0).slice(0, 10);
+    return scores;
+  }
+  return [];
+}
+
+/*-------------------------------------------------------------------------->
+	SCORE LIST GENERATOR
+<--------------------------------------------------------------------------*/
 function createScoreListItem(score) {
   const li = create('li');
   addClass(li, 'score-item'); 
@@ -306,13 +286,20 @@ function createScoreListItem(score) {
   return li; 
 }
 
-function saveScoresToLocalStorage(scores) {
-  const topScores = scores.slice(0, 10);
-  const scoresJSON = JSON.stringify(topScores);
-  localStorage.setItem('scores', scoresJSON);
+function populateScoreList(scores) {
+  scoresList.innerHTML = ''; 
+  scores.forEach((score, index) => {
+    const li = createScoreListItem(score);
+    // Andre, was this the idea behind the new way you mentioned?
+    li.style.animationDelay = `${index * 0.2}s`; 
+    li.classList.add('li-animation'); 
+    scoresList.appendChild(li);
+  });
 }
 
-
+/*-------------------------------------------------------------------------->
+	CALCULATE SCORE 
+<--------------------------------------------------------------------------*/
 
 function calculateScore() {
   const elapsedTime = getTimerTime();
@@ -346,99 +333,80 @@ function calculateScore() {
   populateScoreList(existingScores);
 }
 
-function loadScoresFromLocalStorage() {
-  const scoresJSON = localStorage.getItem('scores');
-  if (scoresJSON) {
-    let scores = JSON.parse(scoresJSON);
-    scores = scores.filter(score => score.hits > 0).slice(0, 10);
-    return scores;
+/*-------------------------------------------------------------------------->
+	MISC
+<--------------------------------------------------------------------------*/
+function toGameArea () {
+  startScrn.classList.toggle('hidden');
+  startScrn.classList.toggle('visible');
+  
+  gameArea.classList.toggle('hidden');
+  gameArea.classList.toggle('visible');
+}
+
+function returnHome() {
+  startScrn.classList.toggle('hidden');
+  startScrn.classList.toggle('visible');
+
+  gameArea.classList.toggle('hidden');
+  gameArea.classList.toggle('visible');
+}
+
+// Maybe need to change icon ?? 
+function muteMusic() {
+  if (backgroundMusic.muted) {
+    backgroundMusic.muted = false;
+  } else {
+    backgroundMusic.muted = true;
   }
-  return [];
 }
 
-// Like Andre was talking about 
+function pointAnimation() {
+  stashBackground.classList.add('bg-color');
 
-function populateScoreList(scores) {
-  scoresList.innerHTML = ''; 
-  scores.forEach((score, index) => {
-    const li = createScoreListItem(score);
-    li.style.animationDelay = `${index * 0.2}s`; 
-    li.classList.add('li-animation'); 
-    scoresList.appendChild(li);
-  });
+  setTimeout(() => {
+      stashBackground.classList.remove('bg-color');
+  }, 200); 
 }
 
+/*-------------------------------------------------------------------------->
+	EVENT LISTENERS
+<--------------------------------------------------------------------------*/
 
+listen('click', startButton, function () {
+	startGame();  
+  toGameArea();
+	userInput.focus();
+});
 
-//    GOTTA FIX THIS BOY UP
+listen('click', beginGame, function () {
+  startGame(); 
+});
 
-scoresWrapper.addEventListener('click', function(ev) {
+listen('click', viewScores, () => {
+  scoresWrapper.showModal();
+});
+
+listen('input', userInput, handleInput);
+listen('keydown', userInput, handleKeydown);
+
+listen('click', viewScores, () => {
+  const topScores = loadScoresFromLocalStorage();
+  populateScoreList(topScores);
+});
+
+listen('click', scoresWrapper, function(ev) {
   const rect = this.getBoundingClientRect();
   if (ev.clientY < rect.top || ev.clientY > rect.bottom || 
     ev.clientX < rect.left || ev.clientX > rect.right) {
       scoresWrapper.close();
   }
 });
-
-listen('click', viewScores, () => {
-const topScores = loadScoresFromLocalStorage();
-populateScoreList(topScores);
+  
+listen('click', muteButton, () => {
+  muteMusic();
 });
-
-function returnHome() {
-  // Toggle visibility of the start screen
-  startScrn.classList.toggle('hidden');
-  startScrn.classList.toggle('visible');
-
-  // Toggle visibility of the game area
-  gameArea.classList.toggle('hidden');
-  gameArea.classList.toggle('visible');
-}
-
-// Attach the returnHome function to a specific button or event
 listen('click', homeButton, () => {
   returnHome();
 });
-
-////   Need to work on 
-function muteMusic() {
-  if (backgroundMusic.muted) {
-    backgroundMusic.muted = false;
-    // Optionally, you can change the icon or update the UI here if needed
-  } else {
-    backgroundMusic.muted = true;
-    // Optionally, update the UI to reflect muted state
-  }
-}
-
-// Attach the muteMusic function to a specific button or event
-listen('click', document.querySelector('.mute-music-btn'), muteMusic);
-
-function randomAnimationInterval(minInterval, maxInterval, callback) {
-  // Generate a random interval duration in milliseconds
-  const randomInterval = Math.random() * (maxInterval - minInterval) + minInterval;
-
-  // Set an interval with the randomly generated duration
-  const intervalId = setInterval(() => {
-    callback();
-  }, randomInterval);
-
-  return intervalId;
-}
-
-// Usage example:
-const minInterval = 1000; // Minimum interval in milliseconds (1 second)
-const maxInterval = 5000; // Maximum interval in milliseconds (5 seconds)
-
-const animationTrigger = () => {
-  // Your animation logic here
-  console.log('Animation triggered!');
-};
-
-// Start the random interval for triggering animations
-const intervalId = randomAnimationInterval(minInterval, maxInterval, animationTrigger);
-
-// To clear the interval when needed (e.g., stop triggering animations):
-// clearInterval(intervalId);
-
 
