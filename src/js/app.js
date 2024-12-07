@@ -48,6 +48,7 @@ const scoresList = select('.high-scores-list');
 const homeButton = select('.home');
 const muteButton = select('.mute');
 const boomButton = select('.boom');
+const boomImage = select('.boom-img');
 
 /*-------------------------------------------------------------------------->
 	VARIABLE DECLARATIONS
@@ -93,6 +94,7 @@ function updateTimer() {
     timer.innerText = '00';
     timerIcon.classList.remove('zoomier');  
     timerIcon.classList.remove('zoom');  
+    toggleClassWithTimeout();
   } else {
     timer.innerText = formattedTime;
     if (remainingTime <= 15 && !timerIcon.classList.contains('zoom')) {
@@ -373,6 +375,20 @@ function muteMusic() {
     muteButton.classList.add('unmuted');
   }
 }
+
+function toggleClassWithTimeout() {
+  if (boomImage.classList.contains('hidden')) {
+    boomImage.classList.remove('hidden');
+  }
+
+  boomImage.classList.add('anim');
+
+  setTimeout(() => {
+    boomImage.classList.remove('anim');
+    boomImage.classList.add('hidden');
+  }, 2000);
+}
+
 
 /*-------------------------------------------------------------------------->
 	EVENT LISTENERS

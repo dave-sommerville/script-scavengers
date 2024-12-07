@@ -467,6 +467,42 @@ ul {
   background-color: var(--clr-yellow);
 }
 
+
+.boom-img {
+  height: 500px; 
+  width: auto;
+  z-index: 10000;
+  position: absolute;
+  margin: auto;
+}
+
+.boom-img.anim {
+  animation: metroBoomin 3s ease-in-out;
+}
+
+@keyframes metroBoomin {
+  0% {
+    opacity: 0;
+    transform: scale(1) rotate(5deg);
+    }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(-5deg);
+  }
+
+}
+
+  .animated.fade-out {
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+}
+
+
+
 .tumbleweed1 {
   width: 55px;
   height: 55px;
@@ -608,6 +644,8 @@ ul {
     transform: translateY(0);
   }
 }
+
+
 
 @keyframes tumbleRight {
   0% {
