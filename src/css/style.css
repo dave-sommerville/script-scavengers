@@ -166,9 +166,8 @@ main {
 .text-box {
   background-color: var(--clr-light);
   border-radius: var(--app-border-rad);
-  border: solid 3px var(--clr-dark);
-  box-shadow:  2px 1px 3px rgb(250 250 250 / 0.5), 
-    -2px -1px 3px rgb(0 0 0 / 0.5);
+  border: solid 2px var(--clr-darkest);
+  box-shadow: -1px -3px 6px 1px rgb(24 24 24 / 0.6);
   padding: var(--app-spacing);
   width: 500px;
   height: fit-content;
@@ -234,12 +233,10 @@ main {
   width: 420px;
   height: fit-content;
   background-color: var(--clr-light);
-  border: solid 3px var(--clr-dark);
-  outline: solid 0.5px #fff;
-  box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
-    inset 2px 1px 3px rgb(0 0 0 / 0.5);
   padding: var(--app-spacing) var(--app-spacing) 0px var(--app-spacing);
   border-radius: var(--app-border-rad);
+  border: solid 2px var(--clr-darkest);
+  box-shadow: -1px -3px 6px 1px rgb(24 24 24 / 0.6);
 }
 
 h3 {
@@ -355,8 +352,6 @@ input[disabled] {
   z-index: 2000;
   background-color: var(--clr-light);
   border-radius: var(--app-border-rad);
-  border: 2px dashed #012;
-  outline: 3px solid #fff;
   transition: all 0.4s ease-in-out;
 
   &::backdrop {
