@@ -712,7 +712,14 @@ ul {
 <----------------------------------------------*/
 
 @media (max-width: 900px) {
-  .start-scrn, .game-area, .animations, .canyon-mid, .canyon-back, .canyon-front, .scavenger-joe {
+  .start-scrn, 
+  .game-area, 
+  .animations, 
+  .canyon-mid, 
+  .canyon-back, 
+  .canyon-front, 
+  .scavenger-joe,
+  .mute {
     display: none;
   }
   .small-screen {
