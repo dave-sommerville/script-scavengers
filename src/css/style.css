@@ -1,5 +1,77 @@
 @charset "utf-8";
 /*---------------------------------------------->
+  ROOTS
+<----------------------------------------------*/
+
+:root {
+  --clr-darkest: #001;
+  --clr-dark: #2c050b;
+  --clr-medium: #722a0d;
+  --clr-light: #b97d44;
+  --clr-lightest: #fbcc8d;
+  --clr-yellow: #ffcf35;
+  --clr-orange: #fb8443;
+
+  --app-spacing: 25px;
+  --app-border-rad: 8px;
+}
+
+/*---------------------------------------------->
+  UTILITY FUNCTIONS
+<----------------------------------------------*/
+
+.wobble {
+  animation: wobble 2s infinite ease-in-out;
+}
+
+.correct {
+  color: var(--clr-medium);
+  animation: dustEffect 0.5s ease-out forwards 0.1s;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  z-index: -100;
+}
+
+.visible {
+  display: block;
+  opacity: 1;
+  z-index: 5000;
+}
+
+.flex {
+  display: flex;
+}
+
+.f-col {
+  flex-direction: column;
+}
+
+.r-margin {
+  margin-right: 15px;
+}
+
+.li-animation {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: liFadeIn 0.5s ease-out forwards;
+}
+
+.zoom {
+  animation: zoomInOut 0.5s infinite;
+}
+
+.zoomier {
+  animation: zoomInOut 0.2s infinite;
+}
+
+.correct { 
+  color: var(--clr-medium);
+}
+
+/*---------------------------------------------->
   BACKGROUND
 <----------------------------------------------*/
 button {
@@ -7,7 +79,6 @@ button {
   border: none;
   text-decoration: none;
 }
-
 body {
   font-family: "Press Start 2P", "IMB Plex Mono", monospace;
   background-color: var(  --clr-darkest);
@@ -168,7 +239,7 @@ main {
 <----------------------------------------------*/
 
 .game-display {
-  width: 420px;
+  width: 500px;
   height: fit-content;
   background-color: var(--clr-light);
   padding: var(--app-spacing) var(--app-spacing) 0px var(--app-spacing);
