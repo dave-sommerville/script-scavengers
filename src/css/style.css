@@ -184,30 +184,9 @@ main {
 }
 
 .button-wrapper {
-  justify-content: space-between;
+  width: 100%;
+  justify-content: right;
 }
-
-.restart-reset {
-  width: 200px;
-  height: 55px;
-  margin: 25px 0;
-  color: #fff;
-  padding: auto;
-  background-color: var(--clr-dark);
-  border-radius: var(--app-border-rad);
-  border: solid 3px var(--clr-dark);
-  outline: solid 0.5px #fff;
-  box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
-    inset 2px 1px 3px rgb(0 0 0 / 0.5);
-  line-height: 55px;
-  font-size: 1.4rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-
-
 
 .start-btn {
   width: 180px;
@@ -222,7 +201,7 @@ main {
     inset 2px 1px 3px rgb(0 0 0 / 0.5);
   cursor: pointer;
   filter: saturate(0);
-  transition: all 0.2.5s ease-in-out;
+  transition: all 0.25s ease-in-out;
 
   span {
     background-color: #012;
@@ -233,6 +212,27 @@ main {
 .start-btn:hover {
   filter: saturate(1);
 }
+
+.restart-reset {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: relative;
+  background: 
+  var(--clr-light) 
+  url('../img/reset.svg') 
+  no-repeat 
+  center 
+  center;
+  background-size: 70%;
+  z-index: 10000;
+  bottom: 20px;
+  transition: all 0.25s ease-in-out;
+  margin: 48px 0 0 var(--app-spacing);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; 
+}
+
 
 /*---------------------------------------------->
   GAME PLAY
@@ -317,8 +317,8 @@ input[disabled] {
 }
 
 .home, .mute, .view-scores {
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   position: fixed;
   z-index: 10000;
@@ -327,10 +327,10 @@ input[disabled] {
 }
 
 .home {
-  left: 260px; 
+  left: 180px; 
   background: 
-    var(--clr-medium) 
-    url('../img/home.png') 
+    var(--clr-light) 
+    url('../img/home.svg') 
     no-repeat 
     center 
     center;
@@ -342,7 +342,7 @@ input[disabled] {
   left: 20px;
   cursor: pointer;
   background: 
-    var(--clr-lightest) 
+    var(--clr-light) 
     url('../img/mute.png') 
     no-repeat 
     center 
@@ -351,24 +351,24 @@ input[disabled] {
 }
 
 .view-scores {
-  left: 140px; 
+  left: 100px; 
   background: 
-    var(--clr-medium) 
-    url('../img/trophy.png') 
+    var(--clr-light) 
+    url('../img/trophy2.png') 
     no-repeat 
     center 
     center;
-  background-size: 85%;
+  background-size: 80%;
   cursor: pointer;
 }
 
-.home:hover, .mute:hover, .view-scores:hover {
+.home:hover, .mute:hover, .view-scores:hover, .restart-reset:hover {
   filter: saturate(1.5);
 }
 
 .muted {
   background: 
-    var(--clr-lightest) 
+    var(--clr-light) 
     url('../img/mute.png') 
     no-repeat 
     center 
@@ -378,7 +378,7 @@ input[disabled] {
 
 .unmuted {
   background: 
-    var(--clr-lightest) 
+    var(--clr-light) 
     url('../img/unmute.png') 
     no-repeat 
     center 
@@ -540,7 +540,7 @@ ul {
   background-size: cover;
   position: absolute;
   right: -60px;
-  bottom: 3svh;
+  bottom: 2svh;
   z-index: 300;
   animation: tumbleRight 18s infinite linear 7s; 
 }

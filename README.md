@@ -27,6 +27,8 @@ Script Scavenger is an engaging typing game set in a post-apocalyptic world. Pla
 - **[Volume Off Icon](https://freeicons.io/material-icons-alert-and-av/volume-off-icon-16092)** by [icon king1](https://freeicons.io)
 - **[Volume Up Icon](https://freeicons.io/material-icons-alert-and-av/volume-up-icon-16100)** by [icon king1](https://freeicons.io)
 
+Icon by <a class="link_pro" href="https://freeicons.io/business-icon-set-69/trophy-icon-475646">Chanut is Industries</a> on <a href="https://freeicons.io">freeicons.io</a>
+
 #### Sound Effects
 - **[Sound Effect](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132)** by [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=42132) from [Pixabay](https://pixabay.com)
 - **[Sound Effect](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614)** by [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=107614) from [Pixabay](https://pixabay.com)
