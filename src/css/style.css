@@ -391,7 +391,7 @@ input[disabled] {
 <----------------------------------------------*/
 .scores-wrapper {
   height: fit-content;
-  width: 500px;
+  width: 600px;
   margin: auto;
   position: fixed;
   padding: var(--app-spacing);
@@ -423,7 +423,7 @@ input[disabled] {
   h4 {
     display: block;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 50px;
     color: var(--clr-dark);
   }

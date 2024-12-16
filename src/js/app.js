@@ -291,13 +291,12 @@ function populateScoreList(scores) {
 <--------------------------------------------------------------------------*/
 
 function calculateScore() {
-  const elapsedTime = getTimerTime();
   const percentage = Math.floor((hits / totalWords) * 100);
   const date = getDate();
   const newScore = {
     date: date,
-    hits: hits,
-    percentage: percentage,
+    hits: hits.toString().padStart(2, '0'),
+    percentage: percentage.toString().padStart(2, '0'),
   };
 
   let existingScores = loadScoresFromLocalStorage();
