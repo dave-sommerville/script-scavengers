@@ -57,7 +57,7 @@ const boomImage = select('.boom-img');
 // Returned to the one liner shuffle for elegance 
 const shuffleWords = arr => arr.sort(() => Math.random() - 0.5);
 
-let maxTime = 20;  
+let maxTime = 60;  
 let gameOver = false;
 let hits = 0;  
 let totalWords;  
@@ -109,7 +109,7 @@ function updateTimer() {
 
 function startTimer() {
   startTime = new Date();  
-  timer.innerText = '20'; 
+  timer.innerText = '60'; 
   gameOver = false; 
 
   timerInterval = setInterval(() => {

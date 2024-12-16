@@ -288,7 +288,7 @@ h3 {
   line-height: 100px;
   border-radius: var(--app-border-rad);
   color: var(--clr-dark);
-    font-size: 2.2rem;
+  font-size: 2.8rem;
 }
 
 .word-entry {
@@ -320,7 +320,7 @@ input[disabled] {
   font-size: 1rem;
   color: #fff;
   line-height: 17px;
-  margin: 4px 0;
+  margin: 15px 0 var(--app-spacing) 0;
 }
 
 .home, .mute {
