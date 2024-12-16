@@ -1,32 +1,9 @@
 'use strict';
 import { wordBank } from "./word-bank.js";
-/*-------------------------------------------------------------------------->
-	UTILITY FUNCTIONS
-<--------------------------------------------------------------------------*/
-function create(element) {
-  const newElement = document.createElement(element); 
-  return newElement;
-}
+import { select, listen, create, addClass, removeClass } from './utils.js';
 
-function select(selector, scope = document) {
-  return scope.querySelector(selector);
-}
 
-function listen(event, element, callback) {
-  return element.addEventListener(event, callback);
-}
 
-function addClass(element, customClass) {
-  element.classList.add(customClass);
-  return element;
-}
-
-function removeClass(element, customClass) {
-  element.classList.remove(customClass);
-  return element;
-}
-
-// import { select, listen } from './utils.js';
 /*-------------------------------------------------------------------------->
 	ELEMENT SELECTORS 
 <--------------------------------------------------------------------------*/
