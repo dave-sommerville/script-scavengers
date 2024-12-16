@@ -187,8 +187,7 @@ main {
   justify-content: space-between;
 }
 
-.restart-reset, 
-.view-scores {
+.restart-reset {
   width: 200px;
   height: 55px;
   margin: 25px 0;
@@ -207,14 +206,8 @@ main {
   transition: all 0.3s ease-in-out;
 }
 
-.restart-reset:hover, 
-.view-scores:hover {
-  color: var(--clr-light);
-}
 
-.view-scores {
-  font-size: 1rem;
-}
+
 
 .start-btn {
   width: 180px;
@@ -229,7 +222,7 @@ main {
     inset 2px 1px 3px rgb(0 0 0 / 0.5);
   cursor: pointer;
   filter: saturate(0);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2.5s ease-in-out;
 
   span {
     background-color: #012;
@@ -323,17 +316,18 @@ input[disabled] {
   margin: 15px 0 var(--app-spacing) 0;
 }
 
-.home, .mute {
+.home, .mute, .view-scores {
   height: 80px;
   width: 80px;
   border-radius: 50%;
   position: fixed;
   z-index: 10000;
   bottom: 20px;
+  transition: all 0.25s ease-in-out;
 }
 
 .home {
-  left: 140px; 
+  left: 260px; 
   background: 
     var(--clr-medium) 
     url('../img/home.png') 
@@ -354,6 +348,22 @@ input[disabled] {
     center 
     center;
   background-size: 70%;
+}
+
+.view-scores {
+  left: 140px; 
+  background: 
+    var(--clr-medium) 
+    url('../img/trophy.png') 
+    no-repeat 
+    center 
+    center;
+  background-size: 85%;
+  cursor: pointer;
+}
+
+.home:hover, .mute:hover, .view-scores:hover {
+  filter: saturate(1.5);
 }
 
 .muted {
