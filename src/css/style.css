@@ -181,20 +181,12 @@ main {
     font-size: 1.1rem;
     line-height: 22px;
   }
-  img {
-    width: 180px;
-    height: 120px;
-    margin: 25px auto 0 auto;
-    border-radius: var(--app-border-rad);
-    border: solid 3px var(--clr-dark);
-  }
 }
 
 .button-wrapper {
   justify-content: space-between;
 }
 
-.start-btn,
 .restart-reset, 
 .view-scores {
   width: 200px;
@@ -215,7 +207,6 @@ main {
   transition: all 0.3s ease-in-out;
 }
 
-.start-btn:hover,
 .restart-reset:hover, 
 .view-scores:hover {
   color: var(--clr-light);
@@ -223,6 +214,31 @@ main {
 
 .view-scores {
   font-size: 1rem;
+}
+
+.start-btn {
+  width: 180px;
+  height: 120px;
+  background: #111 url('../img/bunker.png') no-repeat center center;
+  background-size: cover;
+  margin: 25px auto 0 auto;
+  border-radius: var(--app-border-rad);
+  border: solid 3px var(--clr-dark);
+  outline: solid 0.5px #fff;
+  box-shadow: inset -2px -1px 3px rgb(250 250 250 / 0.5), 
+    inset 2px 1px 3px rgb(0 0 0 / 0.5);
+  cursor: pointer;
+  filter: saturate(0);
+  transition: all 0.3s ease-in-out;
+
+  span {
+    background-color: #012;
+    color: #fff;
+  }
+}
+
+.start-btn:hover {
+  filter: saturate(1);
 }
 
 /*---------------------------------------------->
