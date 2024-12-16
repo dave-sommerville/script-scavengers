@@ -377,7 +377,7 @@ input[disabled] {
   &::backdrop {
     background-color: rgb(44 5 11 / 0.1);
     backdrop-filter: blur(20px);
-    animation: anim 0.25s linear;  
+    animation: anim 0.35s linear;  
   }
 
   .title {
@@ -483,15 +483,12 @@ ul {
     }
 }
 
-
-
 /*---------------------------------------------->
   ANIMATION ELEMENTS
 <----------------------------------------------*/
 .bg-color {
   background-color: var(--clr-yellow);
 }
-
 
 .boom-img {
   height: 500px; 
@@ -505,28 +502,10 @@ ul {
   animation: metroBoomin 3s ease-in-out;
 }
 
-@keyframes metroBoomin {
-  0% {
-    opacity: 0;
-    transform: scale(1) rotate(5deg);
-    }
-  50% {
-    opacity: 1;
-    transform: scale(1.5) rotate(0deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1) rotate(-5deg);
-  }
-
-}
-
   .animated.fade-out {
   opacity: 0;
   transform: scale(0.5) rotate(0deg);
 }
-
-
 
 .tumbleweed1 {
   width: 55px;
@@ -534,12 +513,11 @@ ul {
   background-image: url('../img/tumbleweed-drawing.svg'); 
   background-size: cover;
   position: absolute;
-  left: 5px;
-  bottom: 4svh;
+  right: -60px;
+  bottom: 3svh;
   z-index: 300;
-  animation: tumbleRight 18s infinite linear 2s; 
+  animation: tumbleRight 18s infinite linear 7s; 
 }
-
 
 .bird {
   background-image: 
@@ -567,13 +545,13 @@ ul {
 
 }
 .bird-two {
-  animation-duration: 0.9;
+  animation-duration: 0.9s;
   animation-delay: -0.75.s;
 
 }
 .bird-three {
   animation-duration:1.25s;
-  animation-delay: -0.25s
+  animation-delay: -0.25s;
 
 }
 .bird-four {
@@ -595,22 +573,22 @@ ul {
 
 .bird-container-one {
   animation-duration: 15s;
-  animation-delay: 0;
+  animation-delay: 5s;
 }
 
 .bird-container-two {
   animation-duration: 16s;
-  animation-delay: 1s;
+  animation-delay: 9s;
 }
 
 .bird-container-three {
   animation-duration: 14.6s;
-  animation-delay: 9.5s;
+  animation-delay: 25s;
 }
 
 .bird-container-four {
     animation-duration: 16s;
-    animation-delay: 10.25s;
+    animation-delay: 12s;
 }
 
 /*---------------------------------------------->
@@ -619,13 +597,13 @@ ul {
 
 @keyframes wobble {
   0% {
-    transform: rotate(-5deg);
+    transform: rotate(-4deg);
   }
   50% {
-    transform: rotate(5deg);
+    transform: rotate(4deg);
   }
   100% {
-    transform: rotate(-5deg);
+    transform: rotate(-4deg);
   }
 }
 
@@ -638,7 +616,7 @@ ul {
   }
 }
 
-@keyframes dustEffect { /* Add small delay */
+@keyframes dustEffect { 
   0% {
     opacity: 1;
     filter: blur(0px);
@@ -677,23 +655,21 @@ ul {
   }
 }
 
-
-
 @keyframes tumbleRight {
   0% {
     transform: translateX(0) rotate(0deg);
   }
   25% {
-    transform: translateX(450px) rotate(360deg);
+    transform: translateX(-450px) rotate(-360deg);
   }
   50% {
-    transform: translateX(900px) rotate(720deg);
+    transform: translateX(-900px) rotate(-720deg);
   }
   75% {
-    transform: translateX(1350px) rotate(1080deg);
+    transform: translateX(-1350px) rotate(-1080deg);
   }
   100% {
-    transform: translateX(1800px) rotate(1440deg);
+    transform: translateX(-1800px) rotate(-1440deg);
   }
 }
 
@@ -774,6 +750,22 @@ ul {
 100% {
   transform: translateY(0vh) translateX(110vw) scale(0.45);
 }
+
+}
+
+@keyframes metroBoomin {
+  0% {
+    opacity: 0;
+    transform: scale(1) rotate(5deg);
+    }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(-5deg);
+  }
 
 }
 
