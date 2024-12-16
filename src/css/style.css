@@ -206,6 +206,7 @@ main {
   span {
     background-color: #012;
     color: #fff;
+    padding: 5px;
   }
 }
 
@@ -501,6 +502,12 @@ ul {
       background-size: contain;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
+
+      span {
+        background-color: #001;
+        color: #fff;
+        padding: 5px;
+      }
 
       &:hover {
         filter: brightness(1.2);
@@ -807,6 +814,7 @@ ul {
   .canyon-back, 
   .canyon-front, 
   .scavenger-joe,
+  .view-scores,
   .mute {
     display: none;
   }
