@@ -2,8 +2,6 @@
 import { wordBank } from "./word-bank.js";
 import { select, listen, create, addClass, removeClass } from './utils.js';
 
-
-
 /*-------------------------------------------------------------------------->
 	ELEMENT SELECTORS 
 <--------------------------------------------------------------------------*/
