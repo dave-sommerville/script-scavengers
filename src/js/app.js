@@ -30,7 +30,6 @@ const boomImage = select('.boom-img');
 	VARIABLE DECLARATIONS
 <--------------------------------------------------------------------------*/
 
-// Returned to the one liner shuffle for elegance 
 const shuffleWords = arr => arr.sort(() => Math.random() - 0.5);
 
 let maxTime = 60;  
@@ -38,7 +37,6 @@ let gameOver = false;
 let hits = 0;  
 let totalWords;  
 
-//	Um, for some reason I can't use const with this?? look into 
 let shuffledWords = shuffleWords(wordBank);  
 let startTime = new Date();  
 let timerInterval; 
@@ -111,9 +109,6 @@ function startTimer() {
   }, 1000);  
 }
 
-function getTimerTime() {
-  return maxTime - Math.floor((new Date() - startTime) / 1000);
-}
 
 /*-------------------------------------------------------------------------->
 	DISPLAY TARGET WORDS
