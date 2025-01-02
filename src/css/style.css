@@ -448,6 +448,15 @@ ul {
 /*---------------------------------------------->
   ANIMATION ELEMENTS
 <----------------------------------------------*/
+.taunts {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  z-index: 5000;
+  font-size: 2rem;
+  color: #fff;
+}
+
 .bg-color {
   background-color: var(--clr-yellow);
 }

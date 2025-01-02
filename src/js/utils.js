@@ -24,3 +24,11 @@ export function removeClass(element, customClass) {
   element.classList.remove(customClass);
   return element;
 }
+
+export function getRandomItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+export function getRandomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}

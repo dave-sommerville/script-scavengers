@@ -1,6 +1,15 @@
 'use strict';
 import { wordBank } from "./word-bank.js";
-import { select, listen, create, addClass, removeClass } from './utils.js';
+import { typingTaunts } from "./typing-taunts.js";
+import { 
+  select, 
+  listen, 
+  create, 
+  addClass, 
+  removeClass, 
+  getRandomItem, 
+  getRandomInterval 
+} from './utils.js';
 
 /*-------------------------------------------------------------------------->
 	ELEMENT SELECTORS 
@@ -359,6 +368,19 @@ function toggleClassWithTimeout() {
   }, 2000);
 }
 
+const displayElement = select('.taunts');
+
+
+function displayRandomItem() {
+    const randomItem = getRandomItem(typingTaunts);
+    if (displayElement) {
+        displayElement.textContent = randomItem;
+    }
+    const interval = getRandomInterval(5000, 12000); 
+    setTimeout(displayRandomItem, interval);
+}
+
+displayRandomItem();
 
 /*-------------------------------------------------------------------------->
 	EVENT LISTENERS
