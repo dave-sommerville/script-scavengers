@@ -8,7 +8,8 @@ import {
   addClass, 
   removeClass, 
   getRandomItem, 
-  getRandomInterval 
+  getRandomInterval,
+  getDate
 } from './utils.js';
 
 /*-------------------------------------------------------------------------->
@@ -49,21 +50,6 @@ let totalWords;
 let shuffledWords = shuffleWords(wordBank);  
 let startTime = new Date();  
 let timerInterval; 
-
-
-/*-------------------------------------------------------------------------->
-	DATE
-<--------------------------------------------------------------------------*/
-
-function getDate() {
-  const options = {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit'
-  }
-
-  return new Date().toLocaleDateString('en-ca', options);
-}
 
 /*-------------------------------------------------------------------------->
 	TIMER

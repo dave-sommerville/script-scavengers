@@ -32,3 +32,13 @@ export function getRandomItem(arr) {
 export function getRandomInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function getDate() {
+  const options = {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit'
+  }
+
+  return new Date().toLocaleDateString('en-ca', options);
+}
