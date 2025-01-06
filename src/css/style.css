@@ -307,27 +307,6 @@ input[disabled] {
   background-size: 70%;
 }
 
-
-.taunts {
-  width: 100px;
-  position: fixed;
-  bottom: 240px;
-  right: 250px;
-  z-index: 500;
-  font-size: 1rem;
-  color: #fff;
-}
-
-.taunty-joe {
-  height: 160px;
-  width: auto;
-  position: fixed;
-  bottom: 70px;
-  right: 300px;
-  z-index: 100;
-}
-
-
 /*---------------------------------------------->
   HIGH SCORES
 <----------------------------------------------*/
@@ -489,6 +468,25 @@ ul {
 /*---------------------------------------------->
   ANIMATION ELEMENTS
 <----------------------------------------------*/
+.taunts {
+  width: 100px;
+  position: fixed;
+  bottom: 240px;
+  right: 250px;
+  z-index: 500;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.taunty-joe {
+  height: 160px;
+  width: auto;
+  position: fixed;
+  bottom: 60px;
+  right: 300px;
+  z-index: 100;
+}
+
 .bg-color {
   background-color: var(--clr-yellow);
 }
@@ -505,7 +503,7 @@ ul {
   animation: metroBoomin 3s ease-in-out;
 }
 
-  .animated.fade-out {
+.animated.fade-out {
   opacity: 0;
   transform: scale(0.5) rotate(0deg);
 }
@@ -517,7 +515,7 @@ ul {
   background-size: cover;
   position: absolute;
   right: -60px;
-  bottom: 2svh;
+  bottom: 1.5svh;
   z-index: 300;
   animation: tumbleRight 18s infinite linear 7s; 
 }

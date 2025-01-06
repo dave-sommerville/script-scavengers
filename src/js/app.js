@@ -35,6 +35,7 @@ const homeButton = select('.home');
 const muteButton = select('.mute');
 const boomButton = select('.boom');
 const boomImage = select('.boom-img');
+const displayElement = select('.taunts');
 
 /*-------------------------------------------------------------------------->
 	VARIABLE DECLARATIONS
@@ -354,14 +355,6 @@ function toggleClassWithTimeout() {
   }, 2000);
 }
 
-/* 
-  Names/placement adjusted 
-  Utility functions copied to toolbox 
-  Steady timeout clears out text 
-  The text is cleared sooner than the next random interval 
-*/
-
-const displayElement = select('.taunts');
 function clearTaunt() {
   displayElement.textContent = '';
 }
