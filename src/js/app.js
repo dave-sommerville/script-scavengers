@@ -357,21 +357,20 @@ function toggleClassWithTimeout() {
 /* 
   Names/placement adjusted 
   Utility functions copied to toolbox 
-  Create img/animation
-  Animation sets a sleep function to display text 
   Steady timeout clears out text 
   The text is cleared sooner than the next random interval 
 */
 
 const displayElement = select('.taunts');
-
+function clearTaunt() {
+  displayElement.textContent = '';
+}
 
 function displayRandomItem() {
     const randomItem = getRandomItem(typingTaunts);
-    if (displayElement) {
-        displayElement.textContent = randomItem;
-    }
-    const interval = getRandomInterval(5000, 12000); 
+      displayElement.textContent = randomItem;
+      setTimeout(clearTaunt, 7000);
+    const interval = getRandomInterval(8000, 13000); 
     setTimeout(displayRandomItem, interval);
 }
 
