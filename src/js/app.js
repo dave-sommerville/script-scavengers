@@ -354,6 +354,15 @@ function toggleClassWithTimeout() {
   }, 2000);
 }
 
+/* 
+  Names/placement adjusted 
+  Utility functions copied to toolbox 
+  Create img/animation
+  Animation sets a sleep function to display text 
+  Steady timeout clears out text 
+  The text is cleared sooner than the next random interval 
+*/
+
 const displayElement = select('.taunts');
 
 
